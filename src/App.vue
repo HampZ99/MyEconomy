@@ -6,10 +6,6 @@
     </div>
 <<<<<<< HEAD
     <router-view />
-    <p>mohammad</p>
-    <p>Wenji Billow</p>
-    <p>zeljko</p>
-    <p>hampus</p>
 =======
     <router-view/>
 >>>>>>> 9ab5cbd44b1791c4e1b1885d8faaaaffdc0396dd
