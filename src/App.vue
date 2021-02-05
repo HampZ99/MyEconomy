@@ -6,7 +6,7 @@
     </div>
     <router-view />
     <p>mohammad</p>
-    <p>Wenji Billowgit </p>
+    <p>Wenji Billow</p>
     <p>zeljko</p>
   </div>
 </template>
