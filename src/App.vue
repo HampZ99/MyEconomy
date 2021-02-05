@@ -7,6 +7,7 @@
     <router-view />
     <p>mohammad</p>
     <p>zeljko</p>
+    <p>whatever</p>
   </div>
 </template>
 
