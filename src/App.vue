@@ -9,7 +9,6 @@
     <p>mohammad</p>
     <p>Wenji Billow</p>
     <p>zeljko</p>
-    <p>whatever</p>
     <p>hampus</p>
 =======
     <router-view/>
