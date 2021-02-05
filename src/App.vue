@@ -5,7 +5,6 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
-    <p>Hampus hej</p>
   </div>
 </template>
 
