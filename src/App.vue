@@ -5,10 +5,6 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view />
-    <p>mohammad</p>
-    <p>zeljko</p>
-    <p>whatever</p>
-    <p>hampus</p>
   </div>
 </template>
 
