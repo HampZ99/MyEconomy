@@ -3,12 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import moment from 'moment'
 import Login from '../views/Login.vue'
-<<<<<<< HEAD
 import Valuta from '../views/Valuta.vue'
-=======
 
 Vue.prototype.moment = moment
->>>>>>> 306427770ccd57e1bf628e2a033cd5a7a0b921bf
 Vue.use(VueRouter)
 
 const routes = [
