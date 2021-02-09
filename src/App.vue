@@ -106,7 +106,7 @@
     transition: ease-in-out 0.4s;
     background: #303d4f;
     color: #fafafa;
-    height: 100vh;
+    height: auto;
     width: 320px;
     z-index: 1;
   }

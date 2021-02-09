@@ -40,10 +40,8 @@
           <h1>idk</h1>
         </div>
       </div>
-      <div id="chartWrap">
-        <div id="chart">
-          <ChartDoughnut />
-        </div>
+      <div class="chartDough">
+        <ChartDoughnut />
       </div>
     </div>
   </div>
@@ -69,7 +67,7 @@ export default {
   float: left;
 }
 #content {
-  width: calc(80% - 4em);
+  width: calc(100% - 4em);
   height: auto;
   margin-left: 2em;
   margin-right: 2em;
@@ -81,7 +79,7 @@ export default {
 }
 #cardWrapRight{
   width: calc(50% - 2em);
-  height: calc(358px - 2em);
+  height: 313px;
   background-color: #FFFFFF;
   float: right;
   border-radius: 6px;
@@ -120,22 +118,17 @@ export default {
   margin-top: 0.3em;
 }
 #dashboardNav {
-  width: calc(80% - 4em);
+  width: calc(100% - 4em);
   text-align: left;
   /* background-color: yellow; */
   float: left;
   margin-left: 2em;
   margin-right: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
 #dashboardNav p {
-  width: auto;
-  height: auto;
-  margin-top: -1.8em;
-}
-#dashboardNav h1 {
-  width: auto;
-  height: auto;
+  margin-left: 3px;
 }
 #datebox {
   display: block;
@@ -150,26 +143,18 @@ export default {
   color: #FFFFFF;
   padding: 5px;
 }
-#chart {
-  width: 200px;
-  height: 200px;
-  float: left;
-  margin: 1em;
-}
-#chartWrap {
-  display: flex;
-  justify-content: center;
-  width: calc(50% - 2em);
-  height: calc(358px - 2em);
-  background-color: #FFFFFF;
-  float: left;
-  border-radius: 6px;
-  border: 2px solid hsla(0,0%,0%,0.2);
-  margin-top: 2em;
-}
 #tophalf {
   width: 100%;
   height: auto;
   float: left;
+}
+.chartDough {
+  text-align: center;
+  float: left;
+  width: calc(50% - 5em);
+  height: auto;
+  border-radius: 6px !important;
+  border: 1px solid hsla(0,0%,0%,0.2) !important;
+  margin-bottom: 2em;
 }
 </style>
