@@ -10,34 +10,41 @@
       <hr style="width:100%; text-align:center; opacity:60%">
     </div>
     <div id="content">
-      <div id="cardWrap">
-        <div id="budgetCards" class="travels">
-          <h3>Travels
-            <img id="icon" src="@/assets/DashboardIcons/plane.png" alt="planeIcon"/>
-          </h3>
-          <h2>1300 SEK</h2>
+      <div id="tophalf">
+        <div id="cardWrapLeft">
+          <div id="budgetCards" class="travels">
+            <h3>Travels
+              <img id="icon" src="@/assets/DashboardIcons/plane.png" alt="planeIcon"/>
+            </h3>
+            <h2>1300 SEK</h2>
+          </div>
+          <div id="budgetCards">
+            <h3>Foods
+              <img id="icon" src="@/assets/DashboardIcons/hamburger.png" alt="hamburgerIcon"/>
+            </h3>
+            <h2>3500 SEK</h2>
+          </div>
+          <div id="budgetCards" class="clothes">
+            <h3>Clothes
+              <img id="icon" src="@/assets/DashboardIcons/shirt.png" alt="shirtIcon"/>
+            </h3>
+            <h2>800 SEK</h2>
+          </div>
+          <div id="budgetCards">
+            <h3>Savings
+              <img id="icon" src="@/assets/DashboardIcons/coins.png" alt="coinsIcon"/>
+            </h3>
+            <h2>2000 SEK</h2>
+          </div>
         </div>
-        <div id="budgetCards">
-          <h3>Foods
-            <img id="icon" src="@/assets/DashboardIcons/hamburger.png" alt="hamburgerIcon"/>
-          </h3>
-          <h2>3500 SEK</h2>
-        </div>
-        <div id="budgetCards" class="clothes">
-          <h3>Clothes
-            <img id="icon" src="@/assets/DashboardIcons/shirt.png" alt="shirtIcon"/>
-          </h3>
-          <h2>800 SEK</h2>
-        </div>
-        <div id="budgetCards">
-          <h3>Savings
-            <img id="icon" src="@/assets/DashboardIcons/coins.png" alt="coinsIcon"/>
-          </h3>
-          <h2>2000 SEK</h2>
+        <div id="cardWrapRight">
+          <h1>idk</h1>
         </div>
       </div>
-      <div id="chart">
-        <ChartDoughnut />
+      <div id="chartWrap">
+        <div id="chart">
+          <ChartDoughnut />
+        </div>
       </div>
     </div>
   </div>
@@ -69,8 +76,17 @@ export default {
   margin-right: 2em;
   float: left;
 }
-#cardWrap {
-  width: calc(50% - 4em);
+#cardWrapLeft {
+  width: calc(50% - 2em);
+  float: left;
+}
+#cardWrapRight{
+  width: calc(50% - 2em);
+  height: calc(358px - 2em);
+  background-color: #FFFFFF;
+  float: right;
+  border-radius: 6px;
+  border: 2px solid hsla(0,0%,0%,0.2);
 }
 .travels {
     margin-right: 2em;
@@ -86,7 +102,6 @@ export default {
   border-radius: 6px;
   border: 2px solid hsla(0,0%,0%,0.2);
   text-align: left;
-
   margin-bottom: 2em;
   float: left;
 }
@@ -145,6 +160,23 @@ export default {
 #chart {
   width: 200px;
   height: 200px;
+  float: left;
+  margin: 1em;
+}
+#chartWrap {
+  display: flex;
+  justify-content: center;
+  width: calc(50% - 2em);
+  height: calc(358px - 2em);
+  background-color: #FFFFFF;
+  float: left;
+  border-radius: 6px;
+  border: 2px solid hsla(0,0%,0%,0.2);
+  margin-top: 2em;
+}
+#tophalf {
+  width: 100%;
+  height: auto;
   float: left;
 }
 </style>

@@ -1,9 +1,8 @@
 <template>
-  <b-card title="Doughnut">
     <b-card img-bottom>
-      <ChartDoughnutBase :chart-data="chartData" />
+      <h1>Budgets</h1>
+      <p style="white-space: nowrap;"><ChartDoughnutBase :chart-data="chartData" /></p>
     </b-card>
-  </b-card>
 </template>
 
 <script>
@@ -27,8 +26,8 @@ export default {
         labels: ["Travels", "Food", "Clothes", "Savings"],
         datasets: [
           {
-            backgroundColor: ["#f36e60", "#ffdb3b", "#185190", "Blue"],
-            hoverBackgroundColor: ["#fbd2cd", "#fef5c9", "#d1e3f7", "Gray"],
+            backgroundColor: ["#00F5D4", "#00BBF9", "#FEE440", "#F15BB5"],
+            hoverBackgroundColor: ["#B2FCF2", "#B2EAFD", "#FEF7C5", "#FACDE8"],
             data: [10, 20, 40, 30]
           }
         ]
