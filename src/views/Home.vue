@@ -1,13 +1,11 @@
 <template>
-  <div>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
-export default {
-
-}
+  export default {}
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
