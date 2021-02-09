@@ -3,10 +3,12 @@
     <div id="dashboardNav">
       <h1>Dashboard</h1>
       <p>Welcome back!</p>
-      <div id="datebox">
-        {{ moment(new Date()).format('YYYY-MM-DD') }}
+      <div id="dateboxwrap">
+        <div id="datebox">
+          {{ moment(new Date()).format('YYYY-MM-DD') }}
+        </div>
+        <hr id="line">
       </div>
-      <hr style="width:100%; text-align:center; opacity:60%">
     </div>
     <div id="content">
       <div id="tophalf">
@@ -76,6 +78,7 @@ export default {
 #cardWrapLeft {
   width: calc(50% - 2em);
   float: left;
+  margin-bottom: 2em;
 }
 #cardWrapRight{
   width: calc(50% - 2em);
@@ -84,6 +87,7 @@ export default {
   float: right;
   border-radius: 6px;
   border: 2px solid hsla(0,0%,0%,0.2);
+  margin-bottom: 2em;
 }
 .travels {
     margin-right: 2em;
@@ -156,5 +160,41 @@ export default {
   border-radius: 6px !important;
   border: 1px solid hsla(0,0%,0%,0.2) !important;
   margin-bottom: 2em;
+}
+#line{
+  width:100%; 
+  text-align:center; 
+  opacity:60%;
+}
+@media (max-width: 576px) {
+  #dashboardNav {
+    margin-top: 4em;
+  }
+  #cardWrapLeft {
+    width: 100%;
+    float: left;
+  }
+  #cardWrapRight {
+    width: 100%;
+    float: left;
+  }
+  .chartDough {
+    width: 100%;
+    float: left;
+  }
+  #budgetCards {
+    width: 100%;
+    float: left;
+    margin-bottom: 1em;
+  }
+  #dateboxwrap {
+    float: left;
+    margin-top: 3em;
+  }
+  #line{
+    margin-top: 0em;
+    margin-bottom: 0em;
+    width: 295%;
+  }
 }
 </style>
