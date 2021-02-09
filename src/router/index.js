@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import moment from 'moment'
 import Login from '../views/Login.vue'
-
 import Valuta from '../views/Valuta.vue'
 
 Vue.prototype.moment = moment
