@@ -1,6 +1,5 @@
 <template>
   <div class="Home">
-    <div id="sidenav"></div>
     <div id="dashboardNav">
       <h1>Dashboard</h1>
       <p>Welcome back!</p>
@@ -119,12 +118,6 @@ export default {
   height: 20px;
   float: right;
   margin-top: 0.3em;
-}
-#sidenav {
-  width: 20%;
-  height: 1000px;
-  background-color: #233043;
-  float: left;
 }
 #dashboardNav {
   width: calc(80% - 4em);
