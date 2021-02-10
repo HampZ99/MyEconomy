@@ -1,15 +1,6 @@
 <template>
   <div class="Home">
-    <div id="dashboardNav">
-      <h1>Dashboard</h1>
-      <p>Welcome back!</p>
-      <div id="dateboxwrap">
-        <div id="datebox">
-          {{ moment(new Date()).format('YYYY-MM-DD') }}
-        </div>
-        <hr id="line">
-      </div>
-    </div>
+    <Header title="Dashboard" desc="Welcome Back" :date="true"/>
     <div id="content">
       <div id="tophalf">
         <div id="cardWrapLeft">
@@ -51,9 +42,11 @@
 
 <script>
 import ChartDoughnut from "@/components/ChartDoughnut"
+import Header from '@/components/Header';
 
 export default {
   components: {
+    Header,
     ChartDoughnut
   }
 }
@@ -61,7 +54,6 @@ export default {
 
 <style scoped>
 .Home {
-  background-color: #fafafa;
   width: 100%;
   height: auto;
   /* background-color: aqua; */
@@ -71,8 +63,8 @@ export default {
 #content {
   width: calc(100% - 4em);
   height: auto;
-  margin-left: 2em;
   margin-right: 2em;
+  margin-left: 2em;
   float: left;
 }
 #cardWrapLeft {
@@ -126,7 +118,6 @@ export default {
   text-align: left;
   /* background-color: yellow; */
   float: left;
-  margin-left: 2em;
   margin-right: 2em;
   margin-bottom: 2em;
   margin-top: 2em;

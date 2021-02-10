@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="Stocks">
       <div id="dashboardNav">
       <h1>Dashboard</h1>
@@ -62,3 +63,18 @@ export default {
 
 
 
+=======
+    <div>
+        <input class="btn btn-success" type="button" value='buy'/>
+        <input type="column" value="Investor B">
+        <input type="column" value="test">
+        <input type="column" value="test">
+    </div>
+</template>
+
+<script>
+
+export default {
+};
+</script>
+>>>>>>> 48cc5cf2a0b7a443762617096177e88aa8a167ca
