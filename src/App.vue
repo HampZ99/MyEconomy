@@ -79,7 +79,6 @@
 <style>
   html,
   body {
-<<<<<<< HEAD
     padding: 0;
     margin: 0;
   }
@@ -102,7 +101,7 @@
 
   #nav a.router-link-exact-active {
     color: #42b983;
-=======
+
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -230,6 +229,5 @@
     .sidebar {
       width: 600px;
     }
->>>>>>> 72c72700a4fa62bc4f915e026455bdd443f07f2d
   }
 </style>
