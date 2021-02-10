@@ -24,16 +24,14 @@ export default {
 
 <style scoped>
     .header {
-    width: calc(100% - 4em);
-    text-align: left;
-    float: left;
-    margin-right: 2em;
-    margin-bottom: 2em;
-    margin-top: 2em;
+      width: calc(100% - 4em);
+      text-align: left;
+      float: left;
+      margin: 2rem;
     }
     
     .header p {
-    margin-left: 3px;
+      margin-left: 3px;
     }
 
     .date {
@@ -48,5 +46,11 @@ export default {
       text-align: center;
       color: #FFFFFF;
       padding: 5px;
+    }
+
+    @media (max-width:768px){
+      .header {
+        margin-top: 5rem;
+      }
     }
 </style>

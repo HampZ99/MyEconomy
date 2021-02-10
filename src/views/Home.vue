@@ -64,6 +64,7 @@ export default {
   width: calc(100% - 4em);
   height: auto;
   margin-right: 2em;
+  margin-left: 2em;
   float: left;
 }
 #cardWrapLeft {
