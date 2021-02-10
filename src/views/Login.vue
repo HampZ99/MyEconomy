@@ -23,8 +23,8 @@
                   class="form-control"
                   placeholder="Enter Email"
                 >
+                <b-icon-person-fill />
                 </b-form-input>
-                <span><b-icon-person-fill></b-icon-person-fill> </span>
               </div>
             </div>
           </div>

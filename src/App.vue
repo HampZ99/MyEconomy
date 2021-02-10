@@ -86,17 +86,14 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #fafafa;
     text-align: center;
-    color: #2c3e50;
+    color: #222222;
   }
-
-  /* #nav {
-  padding: 30px;
-} */
 
   #nav a {
     font-weight: bold;
-    color: #2c3e50;
+    color: #222222;
   }
 
   #nav a.router-link-exact-active {
@@ -128,14 +125,16 @@
   .sidebar {
     transition: ease-in-out 0.4s;
     background: #303d4f;
+    margin-right: 2rem;
     color: #fafafa;
     height: auto;
-    width: 320px;
+    width: 20rem;
     z-index: 1;
   }
 
   .sidebar ul {
     list-style-type: none;
+    text-align: left;
     margin: 0 1rem;
     padding: 0;
   }
@@ -215,8 +214,10 @@
       box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
       -webkit-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
+      position: fixed;
       display: none;
-      width: 400px;
+      height: 100%;
+      width: 35%;
     }
     .toggle {
       display: block;
@@ -227,7 +228,7 @@
   }
   @media (max-width: 576px) {
     .sidebar {
-      width: 600px;
+      width: 60%;
     }
   }
 </style>
