@@ -109,11 +109,12 @@
 
   .overlay {
     background-color: #222222;
-    position: absolute;
+    position: fixed;
     display: none;
     opacity: 0.6;
     height: 100%;
     width: 100%;
+    z-index: 2;
     left: 0;
     top: 0;
   }
@@ -129,7 +130,7 @@
     color: #fafafa;
     height: auto;
     width: 20rem;
-    z-index: 1;
+    z-index: 100;
   }
 
   .sidebar ul {
