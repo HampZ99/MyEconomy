@@ -33,8 +33,8 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/Valuta"
-                ><b-icon-bar-chart-line /> Valuta
+              <router-link to="/Stocks"
+                ><b-icon-bar-chart-line /> Stocks
               </router-link>
             </li>
           </ul>

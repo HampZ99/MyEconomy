@@ -1,5 +1,6 @@
 <template>
 <div>
+    
 <h1>test</h1>
 <input class="btn btn-success" type="button" value='buy'/>
 <input type="column" value="Investor B">
