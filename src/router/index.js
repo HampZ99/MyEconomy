@@ -17,12 +17,17 @@ const routes = [
   {
     path: '/Login',
     name: 'Login',
-    component : Login
+    component: Login
   },
   {
     path: '/Valuta',
     name: 'Valuta',
     component: Valuta
+  },
+  {
+    path: '/History',
+    name: 'History',
+    component: History
   }
   // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
 ]

@@ -1,42 +1,48 @@
 <template>
   <div class="Home">
-    <div id="sidenav"></div>
     <div id="dashboardNav">
       <h1>Dashboard</h1>
       <p>Welcome back!</p>
-      <div id="datebox">
-        {{ moment(new Date()).format('YYYY-MM-DD') }}
+      <div id="dateboxwrap">
+        <div id="datebox">
+          {{ moment(new Date()).format('YYYY-MM-DD') }}
+        </div>
+        <hr id="line">
       </div>
-      <hr style="width:100%; text-align:center; opacity:60%">
     </div>
     <div id="content">
-      <div id="cardWrap">
-        <div id="budgetCards" class="travels">
-          <h3>Travels
-            <img id="icon" src="@/assets/DashboardIcons/plane.png" alt="planeIcon"/>
-          </h3>
-          <h2>1300 SEK</h2>
+      <div id="tophalf">
+        <div id="cardWrapLeft">
+          <div id="budgetCards" class="travels">
+            <h3>Travels
+              <img id="icon" src="@/assets/DashboardIcons/plane.png" alt="planeIcon"/>
+            </h3>
+            <h2>1300 SEK</h2>
+          </div>
+          <div id="budgetCards">
+            <h3>Foods
+              <img id="icon" src="@/assets/DashboardIcons/hamburger.png" alt="hamburgerIcon"/>
+            </h3>
+            <h2>3500 SEK</h2>
+          </div>
+          <div id="budgetCards" class="clothes">
+            <h3>Clothes
+              <img id="icon" src="@/assets/DashboardIcons/shirt.png" alt="shirtIcon"/>
+            </h3>
+            <h2>800 SEK</h2>
+          </div>
+          <div id="budgetCards">
+            <h3>Savings
+              <img id="icon" src="@/assets/DashboardIcons/coins.png" alt="coinsIcon"/>
+            </h3>
+            <h2>2000 SEK</h2>
+          </div>
         </div>
-        <div id="budgetCards">
-          <h3>Foods
-            <img id="icon" src="@/assets/DashboardIcons/hamburger.png" alt="hamburgerIcon"/>
-          </h3>
-          <h2>3500 SEK</h2>
-        </div>
-        <div id="budgetCards" class="clothes">
-          <h3>Clothes
-            <img id="icon" src="@/assets/DashboardIcons/shirt.png" alt="shirtIcon"/>
-          </h3>
-          <h2>800 SEK</h2>
-        </div>
-        <div id="budgetCards">
-          <h3>Savings
-            <img id="icon" src="@/assets/DashboardIcons/coins.png" alt="coinsIcon"/>
-          </h3>
-          <h2>2000 SEK</h2>
+        <div id="cardWrapRight">
+          <h1>idk</h1>
         </div>
       </div>
-      <div id="chart">
+      <div class="chartDough">
         <ChartDoughnut />
       </div>
     </div>
@@ -63,14 +69,25 @@ export default {
   float: left;
 }
 #content {
-  width: calc(80% - 4em);
+  width: calc(100% - 4em);
   height: auto;
   margin-left: 2em;
   margin-right: 2em;
   float: left;
 }
-#cardWrap {
-  width: calc(50% - 4em);
+#cardWrapLeft {
+  width: calc(50% - 2em);
+  float: left;
+  margin-bottom: 2em;
+}
+#cardWrapRight{
+  width: calc(50% - 2em);
+  height: 313px;
+  background-color: #FFFFFF;
+  float: right;
+  border-radius: 6px;
+  border: 2px solid hsla(0,0%,0%,0.2);
+  margin-bottom: 2em;
 }
 .travels {
     margin-right: 2em;
@@ -86,7 +103,6 @@ export default {
   border-radius: 6px;
   border: 2px solid hsla(0,0%,0%,0.2);
   text-align: left;
-
   margin-bottom: 2em;
   float: left;
 }
@@ -105,29 +121,18 @@ export default {
   float: right;
   margin-top: 0.3em;
 }
-#sidenav {
-  width: 20%;
-  height: 1000px;
-  background-color: #233043;
-  float: left;
-}
 #dashboardNav {
-  width: calc(80% - 4em);
+  width: calc(100% - 4em);
   text-align: left;
   /* background-color: yellow; */
   float: left;
   margin-left: 2em;
   margin-right: 2em;
   margin-bottom: 2em;
+  margin-top: 2em;
 }
 #dashboardNav p {
-  width: auto;
-  height: auto;
-  margin-top: -1.8em;
-}
-#dashboardNav h1 {
-  width: auto;
-  height: auto;
+  margin-left: 3px;
 }
 #datebox {
   display: block;
@@ -142,9 +147,54 @@ export default {
   color: #FFFFFF;
   padding: 5px;
 }
-#chart {
-  width: 200px;
-  height: 200px;
+#tophalf {
+  width: 100%;
+  height: auto;
   float: left;
+}
+.chartDough {
+  text-align: center;
+  float: left;
+  width: calc(50% - 5em);
+  height: auto;
+  border-radius: 6px !important;
+  border: 1px solid hsla(0,0%,0%,0.2) !important;
+  margin-bottom: 2em;
+}
+#line{
+  width:100%; 
+  text-align:center; 
+  opacity:60%;
+}
+@media (max-width: 576px) {
+  #dashboardNav {
+    margin-top: 4em;
+  }
+  #cardWrapLeft {
+    width: 100%;
+    float: left;
+  }
+  #cardWrapRight {
+    width: 100%;
+    float: left;
+  }
+  .chartDough {
+    width: 100%;
+    float: left;
+  }
+  #budgetCards {
+    width: 100%;
+    float: left;
+    margin-bottom: 1em;
+  }
+  #dateboxwrap {
+    float: left;
+    margin-top: 3em;
+  }
+  #line{
+    margin-top: 0em;
+    margin-bottom: 0em;
+    width: 295%;
+  }
 }
 </style>
