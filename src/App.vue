@@ -33,6 +33,9 @@
               </router-link>
             </li>
             <li>
+              <router-link to="/Budgets"> <b-icon-compass /> Budgets</router-link>
+            </li>
+            <li>
               <router-link to="/Stocks"
                 ><b-icon-bar-chart-line /> Stocks
               </router-link>

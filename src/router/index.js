@@ -5,6 +5,7 @@ import moment from 'moment'
 import Login from '../views/Login.vue'
 import Stocks from '../views/Stocks.vue'
 import History from '../views/History.vue'
+import Budgets from '../views/Budgets.vue'
 
 Vue.prototype.moment = moment
 Vue.use(VueRouter)
@@ -24,6 +25,11 @@ const routes = [
     path: '/Stocks',
     name: 'Stocks',
     component: Stocks
+  },
+  {
+    path: '/Budgets',
+    name: 'Budgets',
+    component: Budgets
   },
   {
     path: '/History',

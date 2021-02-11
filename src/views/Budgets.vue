@@ -1,9 +1,8 @@
 <template>
-  <div class="Home">
-    <Header title="Dashboard" desc="Welcome Back" :date="true"/>
-    <div id="content">
-        <div id="cardWrapLeft">
-          <div id="budgetCards" class="travels">
+    <div class="Budget">
+        <Header title="Budgets" desc="Welcome Back" :date="true"/>
+        <div id="content">
+            <div id="budgetCards" class="travels">
             <h3>Travels
               <img id="icon" src="@/assets/DashboardIcons/plane.png" alt="planeIcon"/>
             </h3>
@@ -15,7 +14,7 @@
             </h3>
             <h2>3500 SEK</h2>
           </div>
-          <div id="budgetCards" class="clothes">
+          <div id="budgetCards">
             <h3>Clothes
               <img id="icon" src="@/assets/DashboardIcons/shirt.png" alt="shirtIcon"/>
             </h3>
@@ -27,31 +26,24 @@
             </h3>
             <h2>2000 SEK</h2>
           </div>
-          <div class="chartDough">
-            <ChartDoughnut />
-          </div>
-        </div>
-        <div id="cardWrapRight">
-          <h1>idk</h1>
+              <input id="btn" type="button" value="Edit budgets">
+              <input class="lastBtn" id="btn" type="button" value="Add budgets">
         </div>
     </div>
-  </div>
 </template>
 
 <script>
-import ChartDoughnut from "@/components/ChartDoughnut"
 import Header from '@/components/Header';
 
 export default {
-  components: {
-    Header,
-    ChartDoughnut
+    components: {
+    Header
   }
 }
 </script>
 
 <style scoped>
-.Home {
+.Budget {
   width: 100%;
   height: auto;
   /* background-color: aqua; */
@@ -60,40 +52,20 @@ export default {
 }
 #content {
   width: calc(100% - 4em);
-  height: auto;
+  height: 100vh;
   margin-right: 2em;
   margin-left: 2em;
   float: left;
 }
-#cardWrapLeft {
-  width: calc(50% - 2em);
-  float: left;
-  margin-bottom: 2em;
-}
-#cardWrapRight{
-  width: calc(50% - 2em);
-  height: 313px;
-  background-color: #FFFFFF;
-  float: right;
-  border-radius: 6px;
-  border: 2px solid hsla(0,0%,0%,0.2);
-  margin-bottom: 2em;
-}
-.travels {
-    margin-right: 2em;
-}
-.clothes{
-    margin-right: 2em;
-}
 #budgetCards{
-  width: calc(50% - 2.5em);
-  height: 25%;
+  width: calc(25% - 1.5em);
+  height: 15%;
   padding: 10px;
   background-color: #FFFFFF;
   border-radius: 6px;
   border: 2px solid hsla(0,0%,0%,0.2);
   text-align: left;
-  margin-bottom: 2em;
+  margin-left: 2em;
   float: left;
 }
 #budgetCards h3 {
@@ -111,38 +83,28 @@ export default {
   float: right;
   margin-top: 0.3em;
 }
-.chartDough {
-  text-align: center;
-  float: left;
-  width: calc(100% - 3em);
-  height: auto;
-  border-radius: 6px;
-  border: 1px solid hsla(0,0%,0%,0.2);
-  margin-bottom: 2em;
-  margin-top: 4em;
+.travels {
+    margin-left: 0em !important;
 }
-#line{
-  width:100%; 
-  text-align:center; 
-  opacity:60%;
+.lastBtn {
+    margin-left: 2em;
+}
+#btn {
+    background-color: #9EB9FF;
+    border: 1px solid hsla(0,0%,0%,0.1);
+    border-radius: 6px;
+    color: #FFFFFF;
+    margin-top: 2em;
 }
 @media (max-width: 576px) {
-  #cardWrapLeft {
-    width: 100%;
-    float: left;
-  }
-  #cardWrapRight {
-    width: 100%;
-    float: left;
-  }
-  .chartDough {
-    width: 100%;
-    float: left;
-  }
-  #budgetCards {
-    width: 100%;
-    float: left;
-    margin-bottom: 1em;
-  }
+    #budgetCards {
+        width: 100%;
+        float: left;
+        margin-left: 0em;
+        margin-bottom: 1em;
+    }
+    #budgetCards h2 {
+        margin-top: 0em;
+    }
 }
 </style>
