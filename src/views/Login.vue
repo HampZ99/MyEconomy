@@ -25,6 +25,16 @@
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
+
+              <div class="input-group">
+                <b-form-input
+                  type="Email"
+                  class="form-control"
+                  placeholder="Enter Email"
+                >
+                  <b-icon-person-fill />
+                </b-form-input>
+              </div>
             </div>
           </div>
           <div class="form-group">

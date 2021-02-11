@@ -1,6 +1,6 @@
 <template>
     <b-card img-bottom>
-      <h1>Budgets</h1>
+      <h2>Budgets</h2>
       <p style="white-space: nowrap;"><ChartDoughnutBase :chart-data="chartData" /></p>
     </b-card>
 </template>
