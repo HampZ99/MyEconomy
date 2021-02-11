@@ -33,7 +33,7 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/Budgets"> <b-icon-compass /> Budgets</router-link>
+              <router-link to="/Budgets"> <b-icon-cash /> Budgets</router-link>
             </li>
             <li>
               <router-link to="/Stocks"
