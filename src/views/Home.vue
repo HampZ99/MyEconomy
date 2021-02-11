@@ -71,43 +71,34 @@
 </template>
 
 <script>
-  <<<<<<< HEAD
-    import ChartDoughnut from '@/components/ChartDoughnut'
-
-    export default {
-      components: {
-        ChartDoughnut
-      }
-  =======
-  import ChartDoughnut from "@/components/ChartDoughnut"
-  import Header from '@/components/Header';
+  import ChartDoughnut from '@/components/ChartDoughnut'
+  import Header from '@/components/Header'
 
   export default {
     components: {
       Header,
       ChartDoughnut
-  >>>>>>> 17e48cc3b2ea7af1e0411789fb766bd4e3b48bc7
     }
+  }
 </script>
 
 <style scoped>
-  <<<<<<< HEAD
-    .Home {
-      background-color: #fafafa;
-      width: 100%;
-      height: auto;
-      /* background-color: aqua; */
-      font-family: 'Open Sans', sans-serif;
-      float: left;
-    }
-    #content {
-      width: calc(100% - 4em);
-      height: auto;
-      margin-left: 2em;
-      margin-right: 2em;
-      float: left;
-    }
-  =======
+  .Home {
+    background-color: #fafafa;
+    width: 100%;
+    height: auto;
+    /* background-color: aqua; */
+    font-family: 'Open Sans', sans-serif;
+    float: left;
+  }
+  #content {
+    width: calc(100% - 4em);
+    height: auto;
+    margin-left: 2em;
+    margin-right: 2em;
+    float: left;
+  }
+
   .Home {
     width: 100%;
     height: auto;
@@ -127,28 +118,28 @@
     float: left;
     margin-bottom: 2em;
   }
-  #cardWrapRight{
+  #cardWrapRight {
     width: calc(50% - 2em);
     height: 313px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     float: right;
     border-radius: 6px;
-    border: 2px solid hsla(0,0%,0%,0.2);
+    border: 2px solid hsla(0, 0%, 0%, 0.2);
     margin-bottom: 2em;
   }
   .travels {
-      margin-right: 2em;
+    margin-right: 2em;
   }
-  .clothes{
-      margin-right: 2em;
+  .clothes {
+    margin-right: 2em;
   }
-  #budgetCards{
+  #budgetCards {
     width: calc(50% - 2.5em);
     height: 25%;
     padding: 10px;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 6px;
-    border: 2px solid hsla(0,0%,0%,0.2);
+    border: 2px solid hsla(0, 0%, 0%, 0.2);
     text-align: left;
     margin-bottom: 2em;
     float: left;
@@ -174,17 +165,16 @@
     width: calc(100% - 3em);
     height: auto;
     border-radius: 6px;
-    border: 1px solid hsla(0,0%,0%,0.2);
+    border: 1px solid hsla(0, 0%, 0%, 0.2);
     margin-bottom: 2em;
     margin-top: 4em;
   }
-  #line{
-    width:100%;
-    text-align:center;
-    opacity:60%;
+  #line {
+    width: 100%;
+    text-align: center;
+    opacity: 60%;
   }
   @media (max-width: 576px) {
-  >>>>>>> 17e48cc3b2ea7af1e0411789fb766bd4e3b48bc7
     #cardWrapLeft {
       width: calc(50% - 2em);
       float: left;
@@ -262,7 +252,7 @@
       height: auto;
       float: left;
     }
-  <<<<<<< HEAD
+
     .chartDough {
       text-align: center;
       float: left;
@@ -308,7 +298,5 @@
         width: 295%;
       }
     }
-  =======
   }
-  >>>>>>> 17e48cc3b2ea7af1e0411789fb766bd4e3b48bc7
 </style>
