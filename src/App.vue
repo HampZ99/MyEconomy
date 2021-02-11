@@ -5,7 +5,10 @@
       @click="showSidebar = !showSidebar"
       :class="{ show: showSidebar }"
     ></div>
-    <div class="wrapper" v-if="this.$route.name !== 'Login'">
+    <div
+      class="wrapper"
+      v-if="this.$route.name !== 'Login' && this.$route.name !== 'Signup'"
+    >
       <div class="toggle" @click="showSidebar = !showSidebar">
         <b-icon-list font-scale="2" />
       </div>

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import moment from 'moment'
 import Login from '../views/Login.vue'
+import Signup from '../views/Signup.vue'
 import Stocks from '../views/Stocks.vue'
 import History from '../views/History.vue'
 
@@ -19,6 +20,11 @@ const routes = [
     path: '/Login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/Signup',
+    name: 'Signup',
+    component: Signup
   },
   {
     path: '/Stocks',
