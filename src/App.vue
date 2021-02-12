@@ -46,7 +46,7 @@
           </ul>
         </div>
       </nav>
-      <div class="container">
+      <div class="container main">
         <router-view />
       </div>
     </div>
@@ -131,13 +131,17 @@
     display: flex;
   }
 
+  .main {
+    margin-left: 320px !important;
+  }
+
   .sidebar {
     transition: ease-in-out 0.4s;
     background: #303d4f;
-    margin-right: 2rem;
     color: #fafafa;
-    height: auto;
-    width: 20rem;
+    position: fixed;
+    height: 100%;
+    width: 260px;
     z-index: 100;
   }
 
@@ -219,6 +223,9 @@
   }
 
   @media (max-width: 768px) {
+    .main {
+      margin-left: 0 !important;
+    }
     .sidebar {
       box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
       -webkit-box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
