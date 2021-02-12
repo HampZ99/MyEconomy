@@ -1,18 +1,6 @@
 <template>
   <div class="Home">
-    <div id="dashboardNav">
-      <h1>Dashboard</h1>
-      <p>Welcome back!</p>
-      <div id="dateboxwrap">
-        <div id="datebox">
-          {{ moment(new Date()).format('YYYY-MM-DD') }}
-        </div>
-        <hr id="line" />
-      </div>
-    </div>
-
     <Header title="Dashboard" desc="Welcome Back" :date="true" />
-
     <div id="content">
       <div id="cardWrapLeft">
         <div id="budgetCards" class="travels">
@@ -94,8 +82,6 @@
   #content {
     width: calc(100% - 4em);
     height: auto;
-    margin-left: 2em;
-    margin-right: 2em;
     float: left;
   }
 
@@ -109,8 +95,6 @@
   #content {
     width: calc(100% - 4em);
     height: auto;
-    margin-right: 2em;
-    margin-left: 2em;
     float: left;
   }
   #cardWrapLeft {

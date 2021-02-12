@@ -46,7 +46,9 @@
           </ul>
         </div>
       </nav>
-      <router-view />
+      <div class="container">
+        <router-view />
+      </div>
     </div>
     <div v-else>
       <router-view />
