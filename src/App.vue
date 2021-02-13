@@ -62,6 +62,7 @@
     BIconClockHistory,
     BIconBarChartLine,
     BIconPersonFill,
+    BIconCash,
     BIconBell,
     BIconList
   } from 'bootstrap-vue'
@@ -73,6 +74,7 @@
       BIconClockHistory,
       BIconBarChartLine,
       BIconPersonFill,
+      BIconCash,
       BIconBell,
       BIconList
     },
