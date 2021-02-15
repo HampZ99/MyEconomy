@@ -20,23 +20,36 @@
             <label class="control-label col-sm-2" for="email">Email:</label>
             <div class="col-sm-10">
               <b-input-group class="mb-2">
-                <b-form-input type="text" placeholder="Email"></b-form-input>
+                <b-form-input
+                  v-model="email"
+                  type="text"
+                  placeholder="Email"
+                  required
+                ></b-form-input>
                 <b-input-group-prepend is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
+              <span v-if="msg.email" style="color:red">{{ msg.email }}</span>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="email">Password:</label>
             <div class="col-sm-10">
               <b-input-group class="mb-2">
-                <b-form-input type="text" placeholder="Password"></b-form-input>
+                <b-form-input
+                  v-model="password"
+                  type="text"
+                  placeholder="Password"
+                  required
+                ></b-form-input>
                 <b-input-group-prepend is-text>
                   <b-icon icon="eye-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
-
+              <span v-if="msg.password" style="color:red"
+                >{{ msg.password }}
+              </span>
               <div>
                 <p style="text-align:right;  margin-top: 0em; font-size:12px">
                   <a href="">Forgot Password</a>
@@ -46,7 +59,9 @@
           </div>
         </div>
         <router-link to="/">
-          <b-button class="logBtn">Login</b-button></router-link
+          <b-button class="logBtn" @click="onclick"
+            >Login</b-button
+          ></router-link
         >
       </b-col>
     </b-row>
@@ -55,7 +70,48 @@
 
 <script>
   export default {
-    name: 'App'
+    component: {},
+    data() {
+      return {
+        name: '',
+        email: '',
+        password: '',
+        msg: [],
+        valid: []
+      }
+    },
+
+    watch: {
+      email(value) {
+        this.email = value
+        this.validateEmail(value)
+      },
+      password(value) {
+        this.password = value
+        this.validatePassword(value)
+      }
+    },
+
+    methods: {
+       validateEmail(value) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(value)) {
+           this.msg['email'] = 'Valid Email Address'
+         } else {
+           this.msg['email'] = 'Invalid Email Address'
+         }
+       },
+       validatePassword(value) {
+        let difference = 8 - value.length
+         if (value.length < 8) {
+           this.msg['password'] =
+            'Must be 8 characters!' + difference + 'characters left'
+         } else {
+          this.msg.['password'] = 'Password Valid';
+        }
+      },
+
+
+    },
   }
 </script>
 
