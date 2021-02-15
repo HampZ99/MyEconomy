@@ -30,8 +30,13 @@
     margin: 2rem 0;
   }
 
+  .header h1 {
+    color: #222222;
+  }
+
   .header p {
     margin-left: 3px;
+    color: #505050;
   }
 
   .date {

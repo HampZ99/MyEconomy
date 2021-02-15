@@ -31,12 +31,12 @@
               <router-link to="/"> <b-icon-compass /> Dashboard</router-link>
             </li>
             <li>
+              <router-link to="/Budgets"> <b-icon-cash /> Budgets</router-link>
+            </li>
+            <li>
               <router-link to="/history">
                 <b-icon-clock-history /> History
               </router-link>
-            </li>
-            <li>
-              <router-link to="/Budgets"> <b-icon-cash /> Budgets</router-link>
             </li>
             <li>
               <router-link to="/Stocks"
@@ -87,6 +87,7 @@
 <style>
   html,
   body {
+    background: #fafafa !important;
     padding: 0;
     margin: 0;
   }
@@ -94,7 +95,6 @@
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #fafafa;
     text-align: center;
     color: #222222;
   }
@@ -143,6 +143,8 @@
     height: 100%;
     width: 260px;
     z-index: 100;
+    left: 0;
+    top: 0;
   }
 
   .sidebar ul {
