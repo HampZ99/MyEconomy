@@ -12,9 +12,9 @@
     </div>
     <div class="search">
         <b-row>
-            <b-col md='8'>
+            <b-col md='10'>
                 
-                <b-form-input v-model='filter' type="search" placeholder="Search stocks"></b-form-input>
+                <b-form-input v-model='filter' type="search" placeholder="Search"></b-form-input>
             </b-col>
         </b-row>
     </div>
@@ -50,7 +50,8 @@ export default {
     computed: {
         rows(){
             return this.items.length
-        }
+        },
+       
     }
 }
         
@@ -66,13 +67,9 @@ export default {
     margin-top: 30px;
 }
 .search {
-    margin-top: 50px;
-}
-.search p {
     float: left;
-    margin-left: 5px;
-    color: rgb(57, 20, 220);
-    
+    margin-top: 30px;
 }
+
 </style>
     
