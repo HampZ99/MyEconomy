@@ -12,7 +12,7 @@
     </div>
     <div class="search">
         <b-row>
-            <b-col md='10'>
+            <b-col md=10>
                 
                 <b-form-input v-model='filter' type="search" placeholder="Search"></b-form-input>
             </b-col>
@@ -33,17 +33,17 @@ export default {
             perPage: 5,
             currentPage: 1,
             filter:'',
-            total: '80',
+            
             items: [
-                { name: 'Investor B', stocks_owned: '5', stocks_price: 10, stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Hennes & Mauritz AB', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Kinnevik B', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Volvo B', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Swedbank A', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'SAS', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Latour B', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Embracer Group B', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-           { name: 'Axfood', stocks_owned: '5', stocks_price: '10', stocks_trend_1year: '10', stocks_trend_24h: '10', _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }   
+                { name: 'Investor B', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 60, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'Hennes & Mauritz AB', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'Kinnevik B', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'Volvo B', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'Swedbank A', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'SAS', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'Latour B', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'Embracer Group B', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+           { name: 'Axfood', stocks_owned: 5, stocks_price: 10, stocks_trend_1year: 10, stocks_trend_24h: 10, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }   
         ]
       }
     },
@@ -51,6 +51,13 @@ export default {
         rows(){
             return this.items.length
         },
+        total() {
+      return Object.values(this.items).reduce(
+        (accumulator, value) =>
+          accumulator + value.stocks_trend_24h ,
+        0
+      )
+    }
        
     }
 }
