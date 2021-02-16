@@ -14,7 +14,7 @@
               <p>-45kr, toilet paper</p> 
       </b-col>
     </b-row>
-    <b-row align-v="stretch">        
+    <b-row align-v="stretch">        git
       <b-col cols="8" class="days-left">
           <span class="number">19</span>
           <p>Days Left</p>
