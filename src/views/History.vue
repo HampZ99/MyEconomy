@@ -1,39 +1,53 @@
 <template>
   <div>
-    <div class="header">
-      <Header title="Stocks" desc="Welcome Back" :date="true"/>
-    </div>
-    <b-container class="main">        
+     <b-container class="main"> 
+       <b-row> 
+         <b-col>  
+             <div class="header">
+               <Header title="MyEconomy" desc="Welcome Back" :date="true"/>
+             </div>
+         </b-col>
+      </b-row>    
       <b-row align-v="stretch">    
         <b-col cols="8" class="current-cash">
             <span class="number">4372,6 SEK</span>
             <p>Left This Month</p>
         </b-col>
         <b-col cols="4"> 
-            <b-icon icon="arrow-right" id="icon"></b-icon>       
+            <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>       
             <h5 id="header"> History </h5> 
-                <b-button variant="outline-primary">Today</b-button> <br>
-                <p>-45kr, toilet paper</p> 
-                <p>-45kr, toilet paper</p> 
-                <p>-45kr, toilet paper</p> 
+                <!-- <b-button variant="outline-primary">Today</b-button> <br> -->
+                <b-list-group>
+                    <b-list-group-item button class="button">Today</b-list-group-item>
+                    <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
+                    <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
+                    <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
+                </b-list-group>
         </b-col>
       </b-row>
-      <b-row align-v="stretch">        git
+      <b-row align-v="stretch">        
         <b-col cols="8" class="days-left">
-            <span class="number">19</span>
-            <p>Days Left</p>
+             <b-icon icon="arrow-clockwise" id="icon-arrow-clockwise" animation="spin"></b-icon> 
+                 <div id="text-wrapper">
+                    <span class="number">19</span>
+                    <p>Days Left</p>
+                 </div>
         </b-col>
         <b-col cols="4">       
-            <b-button variant="outline-primary">Yesterday</b-button> <br>
-            <p>-45kr, toilet paper</p>
-            <p>-45kr, toilet paper</p>
-            <p>-45kr, toilet paper</p>  
-            <b-button variant="outline-primary">This Month</b-button> 
-            <p>-45kr, toilet paper</p>
-            <p>-45kr, toilet paper</p>
-            <p>-45kr, toilet paper</p>     
-            <p>-45kr, toilet paper</p>     
-            <p>-45kr, toilet paper</p>     
+            <!-- <b-button variant="outline-primary">Yesterday</b-button> <br> -->
+            <b-list-group>
+                <b-list-group-item button class="button">Yesterday</b-list-group-item>
+                <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping</b-list-group-item>
+                <b-list-group-item href="#" variant="light">-34kr, transportation fee</b-list-group-item>
+                <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>  
+            </b-list-group>
+            <!-- <b-button variant="outline-primary">This Month</b-button>  -->
+            <b-list-group>
+                <b-list-group-item button class="button">This Month</b-list-group-item>
+                <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
+                <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
+                <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
+            </b-list-group> 
         </b-col>
       </b-row> 
     </b-container>
@@ -41,10 +55,18 @@
 </template>
 
 <script>
-  export default {}
+  import Header from '@/components/Header';
+  export default {
+    components: {
+        Header
+        }, 
+  }
 </script>
 
 <style scoped>
+  .main{      
+    padding-left: 0px;    
+  }
   .current-cash {
     background-color: #9eb9ff80;
     text-align: center;
@@ -53,14 +75,14 @@
   .days-left {
     background-color: #9eb9ff;
     text-align: center;
-    padding-top: 110px;
+    padding-top: 60px;    
   }
   #header {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 50px;
   }
-  #icon {
+  #icon-arrow-right {
     align-content: flex-start;
     position: absolute;
     top: 10px;
@@ -68,7 +90,21 @@
     cursor: pointer;
   }
   .number {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 30px;
+    font-weight: 500;   
+  }
+  #icon-arrow-clockwise{
+      width: 190px; 
+      height: 190px;
+      color: #ffffff;
+      align-content: center;      
+  } 
+  /* need to position the text over the icon */
+  #text-wrapper{
+      margin-top:-130px;
+      display: block;
+  }
+  .button{
+      color: #9eb9ff;
   }
 </style>
