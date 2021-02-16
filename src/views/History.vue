@@ -36,37 +36,34 @@
 </template>
 
 <script>
-export default {
-
-}
+  export default {}
 </script>
 
 <style scoped>
-  .current-cash{
-      background-color: #9eb9ff80;
-      text-align: center;
-      padding-top: 75px;
+  .current-cash {
+    background-color: #9eb9ff80;
+    text-align: center;
+    padding-top: 75px;
   }
-  .days-left{
-      background-color: #9eb9ff;
-      text-align: center;
-       padding-top: 110px;
+  .days-left {
+    background-color: #9eb9ff;
+    text-align: center;
+    padding-top: 110px;
   }
-  #header{
-      text-align: center;
-      padding-top: 10px;
-      padding-bottom: 50px;
+  #header {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
   }
-  #icon{
-      align-content: flex-start;
-      position: absolute;
-      top: 10px;
-      right: 10px;     
-      cursor: pointer;
+  #icon {
+    align-content: flex-start;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
   }
-  .number{
-      font-size: 20px;
-      font-weight: 500;
+  .number {
+    font-size: 20px;
+    font-weight: 500;
   }
-
 </style>
