@@ -80,8 +80,9 @@ export default {
     float: left;
     margin-top: 30px;
 }
-input {
+span input {
     text-align: center;
+    background-color: gray;
 }
 
 
