@@ -82,8 +82,10 @@ export default {
 }
 span input {
     text-align: center;
-    background-color: gray;
+    background-color:#dee2e6;
 }
+
+
 
 
 </style>
