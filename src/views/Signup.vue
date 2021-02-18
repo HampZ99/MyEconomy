@@ -22,37 +22,81 @@
             <label class="control-label col-sm-2" for="Name">Name:</label>
             <div class="col-sm-10">
               <b-input-group class="mb-2">
-                <b-form-input type="text" placeholder="Name"></b-form-input>
+                <b-form-input
+                  type="text"
+                  placeholder="Name"
+                  v-model="name"
+                  :state="namevalidate"
+                ></b-form-input>
                 <b-input-group-prepend is-text>
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
+              <b-form-invalid-feedback
+                :state="namevalidate"
+                v-if="hasSubmitted"
+              >
+                Your Name must be 3-5 characters long.
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback :state="namedvalidate" v-if="hasSubmitted">
+                Looks Good.
+              </b-form-valid-feedback>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-2" for="email">Password:</label>
+            <label class="control-label col-sm-2" for="password"
+              >Password:</label
+            >
             <div class="col-sm-10">
               <b-input-group class="mb-2">
-                <b-form-input type="text" placeholder="Password"></b-form-input>
+                <b-form-input
+                  type="password"
+                  placeholder="Password"
+                  v-model="password"
+                  :state="passwordvalidate"
+                ></b-form-input>
                 <b-input-group-prepend is-text>
                   <b-icon icon="eye-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
+              <b-form-invalid-feedback
+                :state="passwordvalidate"
+                v-if="hasSubmitted"
+              >
+                Your user ID must be 5-12 characters long.
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback
+                :state="passwordvalidate"
+                v-if="hasSubmitted"
+              >
+                Looks Good.
+              </b-form-valid-feedback>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="email">Email:</label>
             <div class="col-sm-10">
               <b-input-group class="mb-2">
-                <b-form-input type="text" placeholder="Password"></b-form-input>
+                <b-form-input
+                  type="text"
+                  placeholder="Email"
+                  v-model="email"
+                  :state="validation"
+                ></b-form-input>
                 <b-input-group-prepend is-text>
                   <b-icon icon="at"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
+              <b-form-invalid-feedback :state="validation" v-if="hasSubmitted">
+                invlid Email Address
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback :state="validation" v-if="hasSubmitted">
+                Looks Good.
+              </b-form-valid-feedback>
             </div>
           </div>
         </div>
-        <b-button class="logBtn">Sign Up</b-button>
+        <b-button class="logBtn" @click="onclick">Sign Up</b-button>
       </b-col>
     </b-row>
   </div>
@@ -60,7 +104,58 @@
 
 <script>
   export default {
-    name: 'App'
+    data() {
+      return {
+        name: '',
+        email: '',
+        password: '',
+        hasSubmitted: false
+      }
+    },
+
+    methods: {
+      validateEmail() {
+        let req = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/
+        return req.test(this.email)
+      },
+      validatepassword() {
+        if (this.password) {
+          return this.password.length > 6 && this.password.length < 13
+        }
+        return this.password.test(this.password)
+      },
+      validatename() {
+        if (this.name) {
+          return this.name.length > 2 && this.name.length < 25
+        }
+        return this.name.test(this.name)
+      },
+
+      onclick() {
+        this.hasSubmitted = true
+        // this.emailColor = 'green'
+      }
+    },
+    computed: {
+      validation() {
+        if (this.email) {
+          return this.validateEmail() ? true : false
+        }
+        return null
+      },
+      passwordvalidate() {
+        if (this.password) {
+          return this.validatepassword(this.password) ? true : false
+        }
+        return null
+      },
+      namevalidate() {
+        if (this.name) {
+          return this.validatename(this.name) ? true : false
+        }
+        return null
+      }
+    }
   }
 </script>
 
@@ -72,6 +167,23 @@
   .right {
     background-color: white;
     border-radius: 0vh 1vh 1vh 0vh;
+  }
+  img {
+    max-width: 100%;
+  }
+  .input-group-text {
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    background-color: white;
+  }
+  .form-control {
+    border-right: none;
+    border-top: none;
+    border-left: none;
+  }
+  .form-control:focus {
+    border: none;
   }
   #Signup {
     background-color: #9eb9ff;

@@ -5,11 +5,11 @@
         <b-card-img class="img" src="@/assets/log.png"></b-card-img>
       </b-col>
       <b-col class="right">
+        <p style="font-size:40px; letter-spacing:-0.5px;">
+          <strong>Login</strong> To
+        </p>
         <b-img src="@/assets/economyLogo.png"></b-img>
         <br />
-        <p style="font-size:35px; letter-spacing:-0.5px;">
-          <strong>Login</strong> To MyEconomy
-        </p>
         Dont have an account yet ?
         <router-link to="/Signup" style="font-size:12px">
           Sign Up Here!</router-link
@@ -23,6 +23,7 @@
                 <b-form-input
                   v-model="email"
                   type="text"
+                  :state="validation"
                   placeholder="Email"
                   required
                 ></b-form-input>
@@ -30,7 +31,18 @@
                   <b-icon icon="person-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
-              <span v-if="msg.email" style="color:red">{{ msg.email }}</span>
+              <b-form-invalid-feedback :state="validation" v-if="hasSubmitted">
+                invlid Email Address
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback :state="validation" v-if="hasSubmitted">
+                Looks Good.
+              </b-form-valid-feedback>
+              <!-- <span
+                v-if="msg.email && hasSubmitted"
+                :style="{ color: emailColor }"
+                :state="validation"
+                >{{ msg.email }}</span
+              > -->
             </div>
           </div>
           <div class="form-group">
@@ -39,17 +51,34 @@
               <b-input-group class="mb-2">
                 <b-form-input
                   v-model="password"
-                  type="text"
+                  type="password"
                   placeholder="Password"
+                  :state="passwordvalidate"
                   required
                 ></b-form-input>
                 <b-input-group-prepend is-text>
                   <b-icon icon="eye-fill"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
-              <span v-if="msg.password" style="color:red"
+              <b-form-invalid-feedback
+                :state="passwordvalidate"
+                v-if="hasSubmitted"
+              >
+                Your user ID must be 5-12 characters long.
+              </b-form-invalid-feedback>
+              <b-form-valid-feedback
+                :state="passwordvalidate"
+                v-if="hasSubmitted"
+              >
+                Looks Good.
+              </b-form-valid-feedback>
+              <!-- <b-form-valid-feedback :state="validation" v-if="hasSubmitted">
+                Looks Good.
+              </b-form-valid-feedback> -->
+
+              <!-- <span v-if="msg.password && hasSubmitted"
                 >{{ msg.password }}
-              </span>
+              </span> -->
               <div>
                 <p style="text-align:right;  margin-top: 0em; font-size:12px">
                   <a href="">Forgot Password</a>
@@ -58,11 +87,8 @@
             </div>
           </div>
         </div>
-        <router-link to="/">
-          <b-button class="logBtn" @click="onclick"
-            >Login</b-button
-          ></router-link
-        >
+        <b-button class="logBtn" @click="onclick">Login</b-button>
+        <!-- <router-link to="/"> </router-link> -->
       </b-col>
     </b-row>
   </div>
@@ -77,45 +103,94 @@
         email: '',
         password: '',
         msg: [],
-        valid: []
+        hasSubmitted: false,
+        emailColor: 'red'
+        // validated: false
+
+        // valid: []
       }
     },
 
     watch: {
-      email(value) {
-        this.email = value
-        this.validateEmail(value)
-      },
-      password(value) {
-        this.password = value
-        this.validatePassword(value)
-      }
+      //   email(value) {
+      //     this.email = value
+      //     this.validateEmail(value)
+      //   },
+      // password(value) {
+      //    this.password = value
+      //   this.validatePassword(value)
+      //  }
     },
 
     methods: {
-       validateEmail(value) {
-        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(value)) {
-           this.msg['email'] = 'Valid Email Address'
-         } else {
-           this.msg['email'] = 'Invalid Email Address'
-         }
-       },
-       validatePassword(value) {
-        let difference = 8 - value.length
-         if (value.length < 8) {
-           this.msg['password'] =
-            'Must be 8 characters!' + difference + 'characters left'
-         } else {
-          this.msg.['password'] = 'Password Valid';
+      validateEmail() {
+        let req = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/
+        return req.test(this.email)
+      },
+      validatepassword() {
+        if (this.password) {
+          return this.password.length > 6 && this.password.length < 13
         }
+        return this.password.test(this.password)
       },
 
+      // validateEmail(value) {
+      //   if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(value)) {
+      //     this.msg['email'] = 'Valid Email Address'
+      //   } else {
+      //     this.msg['email'] = 'Invalid Email Address'
+      //   }
+      // },
+      //  validatePassword(value) {
+      //    let difference = 8 - value.length
+      //    if (value.length < 8) {
+      //     this.msg['password'] =
+      //        'Must be 8 characters!' + difference + 'characters left'
+      //     } else {
+      //      this.msg.['password'] = 'Password Valid';
+      //    }
+      //  },
 
+      onclick() {
+        this.hasSubmitted = true
+        // this.emailColor = 'green'
+      }
     },
+    computed: {
+      validation() {
+        if (this.email) {
+          return this.validateEmail() ? true : false
+        }
+        return null
+      },
+      passwordvalidate() {
+        if (this.password) {
+          return this.validatepassword(this.password) ? true : false
+        }
+        return null
+      }
+    }
   }
 </script>
 
 <style scoped>
+  img {
+    max-width: 100%;
+  }
+  .input-group-text {
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    background-color: white;
+  }
+  .form-control {
+    border-right: none;
+    border-top: none;
+    border-left: none;
+  }
+  .form-control:focus {
+    border: none;
+  }
   .left {
     background-color: whitesmoke;
     border-radius: 1vh 0vh 0vh 1vh;
