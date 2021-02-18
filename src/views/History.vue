@@ -1,56 +1,51 @@
 <template>
-  <div>
-     <b-container class="main"> 
-       <b-row> 
-         <b-col>  
-             <div class="header">
-               <Header title="MyEconomy" desc="Welcome Back" :date="true"/>
-             </div>
-         </b-col>
-      </b-row>    
-      <b-row align-v="stretch">    
-        <b-col cols="8" class="current-cash">
-            <span class="number">4372,6 SEK</span>
-            <p>Left This Month</p>
-        </b-col>
-        <b-col cols="4"> 
-            <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>       
-            <h5 id="header"> History </h5> 
-                <!-- <b-button variant="outline-primary">Today</b-button> <br> -->
-                <b-list-group>
-                    <b-list-group-item button class="button">Today</b-list-group-item>
-                    <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
-                    <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
-                    <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
-                </b-list-group>
-        </b-col>
-      </b-row>
-      <b-row align-v="stretch">        
-        <b-col cols="8" class="days-left">
-             <b-icon icon="arrow-clockwise" id="icon-arrow-clockwise" animation="spin"></b-icon> 
-                 <div id="text-wrapper">
-                    <span class="number">19</span>
-                    <p>Days Left</p>
-                 </div>
-        </b-col>
-        <b-col cols="4">       
-            <!-- <b-button variant="outline-primary">Yesterday</b-button> <br> -->
-            <b-list-group>
-                <b-list-group-item button class="button">Yesterday</b-list-group-item>
-                <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping</b-list-group-item>
-                <b-list-group-item href="#" variant="light">-34kr, transportation fee</b-list-group-item>
-                <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>  
-            </b-list-group>
-            <!-- <b-button variant="outline-primary">This Month</b-button>  -->
-            <b-list-group>
-                <b-list-group-item button class="button">This Month</b-list-group-item>
-                <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
-                <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
-                <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
-            </b-list-group> 
-        </b-col>
-      </b-row> 
-    </b-container>
+  <div>    
+     <b-row> 
+       <b-col>  
+         <div class="header">
+           <Header title="MyEconomy" desc="Welcome Back" :date="true"/>
+         </div>
+       </b-col>
+    </b-row>    
+    <b-row align-v="stretch">    
+      <b-col cols="8" class="current-cash">
+        <span class="number">4372,6 SEK</span>
+        <p>Left This Month</p>
+      </b-col>
+      <b-col cols="4"> 
+        <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>       
+        <h5 id="header"> History </h5>           
+          <b-list-group>
+            <b-list-group-item button class="button">Today</b-list-group-item>
+            <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
+            <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
+            <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
+          </b-list-group>
+      </b-col>
+    </b-row>
+    <b-row align-v="stretch">        
+      <b-col cols="8" class="days-left">
+        <b-icon icon="arrow-clockwise" id="icon-arrow-clockwise" animation="spin"></b-icon> 
+          <div id="text-wrapper">
+             <span class="number">19</span>
+             <p>Days Left</p>
+          </div>
+      </b-col>
+      <b-col cols="4">     
+        <b-list-group>
+          <b-list-group-item button class="button">Yesterday</b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping</b-list-group-item>
+          <b-list-group-item href="#" variant="light">-34kr, transportation fee</b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>  
+        </b-list-group>        
+        <b-list-group>
+          <b-list-group-item button class="button">This Month</b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
+          <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
+          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
+        </b-list-group> 
+      </b-col>
+    </b-row>    
   </div>
 </template>
 
@@ -63,10 +58,7 @@
   }
 </script>
 
-<style scoped>
-  .main{      
-    padding-left: 0px;    
-  }
+<style scoped> 
   .current-cash {
     background-color: #9eb9ff80;
     text-align: center;
