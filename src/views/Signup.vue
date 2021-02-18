@@ -96,11 +96,8 @@
             </div>
           </div>
         </div>
-        <router-link to="/login">
-          <b-button class="logBtn" @click="onclick"
-            >Sign Up</b-button
-          ></router-link
-        >
+
+        <b-button class="logBtn" @click="onclick">Sign Up</b-button>
       </b-col>
     </b-row>
   </div>
