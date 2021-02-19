@@ -218,6 +218,7 @@
     position: fixed;
     display: none;
     color: #fafafa;
+    z-index: 2;
     width: 100%;
     top: 0;
   }
