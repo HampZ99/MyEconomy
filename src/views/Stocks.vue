@@ -4,6 +4,10 @@
           <Header title="Stocks" desc="Welcome Back" :date="true"/>
           </div>
     <div class="table">
+         <b-form-fieldset horizontal label="Rows per page" class="col-2" :label-size="6">
+      <b-form-select :options="[{text:5,value:5},{text:10,value:10}]" v-model="perPage">
+      </b-form-select>
+    </b-form-fieldset>
         <b-table class="banner"  hover bordered table-responsive :items="items" :filter='filter' :per-page='perPage' :current-page="currentPage"></b-table>
         <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage"></b-pagination>
     </div>
@@ -84,6 +88,11 @@ span input {
     text-align: center;
     background-color:#dee2e6;
 }
+.table {
+    width: 100%;
+}
+
+
 
 
 
