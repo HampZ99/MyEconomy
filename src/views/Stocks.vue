@@ -11,7 +11,7 @@
         <b-table fixed responsive="" class="banner"  hover bordered table-responsive :items="items" :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields'>
             <template v-slot:cell(actions) = 'data'>
                 <b-button variant="danger" @click="deleteItem(data.item.name)">Delete</b-button> /
-                <b-button variant="primary"> Buy</b-button>
+                <b-button a href="https://www.swedbank.se/" variant="primary"> Buy</b-button>
                 
             </template>
         </b-table>
@@ -62,7 +62,7 @@ export default {
         total() {
             return Object.values(this.items).reduce(
                 (accumulator, value) =>
-          accumulator + value.stocks_trend_24h ,
+           Math.round(accumulator + value.stocks_trend_24h * 100) / 100 ,
         0
       )
     }
