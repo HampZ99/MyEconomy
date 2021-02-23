@@ -1,8 +1,8 @@
 <template>
   <div class="Stocks">
-      <div class="header">
-          <Header title="Stocks" desc="Welcome Back" :date="true"/>
-          </div>
+    <div class="header">
+      <Header title="Stocks" desc="Welcome Back" :date="true" />
+    </div>
     <div class="table">
          <b-form-fieldset horizontal label="Rows per page" class="col-2" :label-size="6">
       <b-form-select :options="[{text:5,value:5},{text:10,value:10}]" v-model="perPage">
@@ -31,11 +31,11 @@
 </template>
        
 <script>
-import Header from '@/components/Header';
-export default {
+  import Header from '@/components/Header'
+  export default {
     components: {
-        Header
-        },
+      Header
+    },
     data() {
         return {
             fields: ['name', 'stocks_owned', 'stocks_price', 'stocks_trend_1year', 'stocks_trend_24h', 'actions'],
@@ -76,20 +76,20 @@ export default {
 }
 </script>
 <style scoped>
-.Stocks {
+  .Stocks {
     height: 100vh;
     width: 100%;
-}
-.total {
+  }
+  .total {
     float: right;
     margin-right: 10px;
     margin-top: 30px;
-}
-.search {
+  }
+  .search {
     float: left;
     margin-top: 30px;
-}
-span input {
+  }
+  .span input {
     text-align: center;
     background-color:#dee2e6;
 }

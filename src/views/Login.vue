@@ -51,13 +51,13 @@
               <b-input-group class="mb-2">
                 <b-form-input
                   v-model="password"
-                  type="password"
+                  :type="type"
                   placeholder="Password"
                   :state="passwordvalidate"
                   required
                 ></b-form-input>
                 <b-input-group-prepend is-text>
-                  <b-icon icon="eye-fill"></b-icon>
+                  <b-icon @click="showPassword" icon="eye"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
               <b-form-invalid-feedback
@@ -106,10 +106,19 @@
         password: '',
         msg: [],
         hasSubmitted: false,
-        emailColor: 'red'
+        emailColor: 'red',
+        type: 'password'
         // validated: false
 
         // valid: []
+      }
+    },
+    mounted() {
+      if (localStorage.email) {
+        this.email = localStorage.email
+      }
+      if (localStorage.password) {
+        this.password = localStorage.password
       }
     },
 
@@ -122,6 +131,12 @@
       //    this.password = value
       //   this.validatePassword(value)
       //  }
+      email(newEmail) {
+        localStorage.email = newEmail
+      },
+      password(newPassword) {
+        localStorage.password = newPassword
+      }
     },
 
     methods: {
@@ -134,6 +149,13 @@
           return this.password.length > 6 && this.password.length < 13
         }
         return this.password.test(this.password)
+      },
+      showPassword() {
+        if (this.type === 'password') {
+          this.type = 'text'
+        } else {
+          this.type = 'password'
+        }
       },
 
       // validateEmail(value) {
