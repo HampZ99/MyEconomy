@@ -8,7 +8,7 @@
       <b-form-select :options="[{text:5,value:5},{text:10,value:10}]" v-model="perPage">
       </b-form-select>
     </b-form-fieldset>
-        <b-table class="banner"  hover bordered table-responsive :items="items" :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields'>
+        <b-table fixed responsive="" class="banner"  hover bordered table-responsive :items="items" :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields'>
             <template v-slot:cell(actions) = 'data'>
                 <b-button variant="danger" @click="deleteItem(data.item.name)">Delete</b-button> /
                 <b-button variant="primary"> Buy</b-button>
