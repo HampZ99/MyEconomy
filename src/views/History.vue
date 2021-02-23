@@ -10,10 +10,13 @@
     <b-row align-v="stretch">    
       <b-col cols="8" class="current-cash">
         <span class="number">4372,6 SEK</span>
-        <p>Left This Month</p>
+        <p id="tooltip-target-1">Left This Month</p>
+        <b-tooltip target="tooltip-target-1" triggers="hover">
+          You have <b>4372,6</b> cash remain untill your next salary!
+        </b-tooltip>
       </b-col>
       <b-col cols="4"> 
-        <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>       
+        <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>        
         <h5 id="header"> History </h5>           
           <b-list-group>
             <b-list-group-item button class="button">Today</b-list-group-item>
@@ -25,7 +28,10 @@
     </b-row>
     <b-row align-v="stretch">        
       <b-col cols="8" class="days-left">
-        <b-icon icon="arrow-clockwise" id="icon-arrow-clockwise" animation="spin"></b-icon> 
+        <b-icon icon="arrow-clockwise" id="icon-arrow-clockwise" animation="spin"></b-icon>
+        <b-tooltip target="icon-arrow-clockwise" triggers="hover">
+          There are <b>19</b> days remain until your next salary!
+        </b-tooltip> 
           <div id="text-wrapper">
              <span class="number">19</span>
              <p>Days Left</p>
