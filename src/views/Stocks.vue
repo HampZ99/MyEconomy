@@ -9,8 +9,8 @@
       </b-form-select>
     </b-form-fieldset>
         <b-table fixed responsive="" class="banner"  hover bordered table-responsive :items="items" :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields'>
-            <template v-slot:cell(actions) = 'data'>
-                <b-button variant="danger" @click="deleteItem(data.item.name)">Delete</b-button> /
+            <template v-slot:cell(actions) = 'tasks'>
+                <b-button variant="danger" @click="deleteItem(tasks.item)">Delete</b-button> /
                 <b-button a href="https://www.swedbank.se/" variant="primary"> Buy</b-button>
                 
             </template>
@@ -68,10 +68,9 @@
     }
     },
     methods: {
-        deleteItem(name) {
-            const index = this.items.indexOf((x) => x.name === name)
-            this.items.splice(index,1)
-        }
+        deleteItem: function(task){
+    this.items.splice(this.items.indexOf(task), 1);
+}
     }
 }
 </script>
@@ -89,7 +88,7 @@
     float: left;
     margin-top: 30px;
   }
-  .span input {
+  span input {
     text-align: center;
     background-color:#dee2e6;
 }
