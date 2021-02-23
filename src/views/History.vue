@@ -9,11 +9,11 @@
     </b-row>    
     <b-row align-v="stretch">    
       <b-col cols="8" class="current-cash">
-        <span class="number">4372,6 SEK</span>
-        <p id="tooltip-target-1">Left This Month</p>
+        <span id="tooltip-target-1" class="number">4372,6 SEK</span>       
         <b-tooltip target="tooltip-target-1" triggers="hover">
           You have <b>4372,6</b> cash remain untill your next salary!
         </b-tooltip>
+        <p>Left This Month</p>
       </b-col>
       <b-col cols="4"> 
         <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>        
