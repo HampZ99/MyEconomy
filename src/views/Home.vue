@@ -3,57 +3,12 @@
     <Header title="Dashboard" desc="Welcome Back" :date="true" />
     <div id="content">
       <div id="cardWrapLeft">
-        <div id="budgetCards" class="travels">
-          <h3>
-            Travels
-            <img
-              id="icon"
-              src="@/assets/DashboardIcons/plane.png"
-              alt="planeIcon"
-            />
-          </h3>
-          <h2>1300 SEK</h2>
-        </div>
-        <div id="budgetCards">
-          <h3>
-            Foods
-            <img
-              id="icon"
-              src="@/assets/DashboardIcons/hamburger.png"
-              alt="hamburgerIcon"
-            />
-          </h3>
-          <h2>3500 SEK</h2>
-        </div>
-        <div id="budgetCards" class="clothes">
-          <h3>
-            Clothes
-            <img
-              id="icon"
-              src="@/assets/DashboardIcons/shirt.png"
-              alt="shirtIcon"
-            />
-          </h3>
-          <h2>800 SEK</h2>
-        </div>
-        <div id="budgetCards">
-          <h3>
-            Savings
-            <img
-              id="icon"
-              src="@/assets/DashboardIcons/coins.png"
-              alt="coinsIcon"
-            />
-          </h3>
-          <h2>2000 SEK</h2>
-        </div>
+        <BudgetNumbers />
         <div class="chartDough">
           <ChartDoughnut />
         </div>
       </div>
-      <div id="cardWrapRight">
-        <h1>idk</h1>
-      </div>
+      <div id="cardWrapRight"></div>
     </div>
   </div>
 </template>
@@ -61,11 +16,13 @@
 <script>
   import ChartDoughnut from '@/components/ChartDoughnut'
   import Header from '@/components/Header'
+  import BudgetNumbers from '@/components/BudgetNumbers'
 
   export default {
     components: {
       Header,
-      ChartDoughnut
+      ChartDoughnut,
+      BudgetNumbers
     }
   }
 </script>
@@ -84,17 +41,15 @@
     height: auto;
     float: left;
   }
-
-  .Home {
-    width: 100%;
-    height: auto;
-    /* background-color: aqua; */
-    font-family: 'Open Sans', sans-serif;
-    float: left;
-  }
-  #content {
-    width: calc(100% - 4em);
-    height: auto;
+  #budgetCards {
+    width: 50%;
+    height: 15%;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 2px solid hsla(0, 0%, 0%, 0.2);
+    text-align: left;
+    margin-left: 2em;
     float: left;
   }
   #cardWrapLeft {
@@ -104,44 +59,14 @@
   }
   #cardWrapRight {
     width: calc(50% - 2em);
-    height: 313px;
-    background-color: #ffffff;
-    float: right;
-    border-radius: 6px;
-    border: 2px solid hsla(0, 0%, 0%, 0.2);
+    float: left;
     margin-bottom: 2em;
-  }
-  .travels {
-    margin-right: 2em;
-  }
-  .clothes {
-    margin-right: 2em;
-  }
-  #budgetCards {
-    width: calc(50% - 2.5em);
-    height: 25%;
     padding: 10px;
     background-color: #ffffff;
     border-radius: 6px;
     border: 2px solid hsla(0, 0%, 0%, 0.2);
     text-align: left;
-    margin-bottom: 2em;
-    float: left;
-  }
-  #budgetCards h3 {
-    margin-top: 0em;
-  }
-  #budgetCards h2 {
-    margin-top: 1.5em;
-    margin-bottom: 0em;
-    float: left;
-    font-size: 28px;
-  }
-  #icon {
-    width: 20px;
-    height: 20px;
-    float: right;
-    margin-top: 0.3em;
+    margin-left: 2em;
   }
   .chartDough {
     text-align: center;
@@ -158,19 +83,16 @@
     text-align: center;
     opacity: 60%;
   }
+
   @media (max-width: 576px) {
     #cardWrapLeft {
-      width: calc(50% - 2em);
+      width: calc(100% - 2em);
       float: left;
       margin-bottom: 2em;
     }
     #cardWrapRight {
-      width: calc(50% - 2em);
-      height: 313px;
-      background-color: #ffffff;
-      float: right;
-      border-radius: 6px;
-      border: 2px solid hsla(0, 0%, 0%, 0.2);
+      width: calc(100% - 2em);
+      float: left;
       margin-bottom: 2em;
     }
     .travels {
