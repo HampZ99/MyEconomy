@@ -45,6 +45,9 @@
             </li>
           </ul>
         </div>
+        <div class="bottom">
+          <AddButton />
+        </div>
       </nav>
       <div class="container main">
         <router-view />
@@ -57,6 +60,7 @@
 </template>
 
 <script>
+  import AddButton from '@/components/expenses/AddExpense'
   import {
     BIconCompass,
     BIconClockHistory,
@@ -70,6 +74,7 @@
   export default {
     name: 'App',
     components: {
+      AddButton,
       BIconCompass,
       BIconClockHistory,
       BIconBarChartLine,
@@ -149,6 +154,12 @@
     top: 0;
   }
 
+  .sidebar .bottom {
+    position: absolute;
+    bottom: 1.5rem;
+    width: 100%;
+  }
+
   .sidebar ul {
     list-style-type: none;
     text-align: left;
@@ -218,12 +229,20 @@
     position: fixed;
     display: none;
     color: #fafafa;
+    z-index: 2;
     width: 100%;
     top: 0;
   }
 
   .toggle svg {
     cursor: pointer;
+  }
+
+  .modal-content {
+    background: #fafafa !important;
+    border-radius: 5px !important;
+    border: 0 !important;
+    color: #222222;
   }
 
   @media (max-width: 768px) {
