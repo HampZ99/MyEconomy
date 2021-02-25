@@ -4,9 +4,12 @@
       <Header title="Stocks" desc="Welcome Back" :date="true" />
     </div>
     <h1>Your stocks</h1>
+    <b-container>
+    <b-alert :show="showDissmisbleAlert" variant="warning" dismissible fade>Some stocks are loosing money</b-alert>
     
+        </b-container>
     <div class="table">
-         <b-form-fieldset horizontal label="Rows per page" class="col-2" :label-size="6">
+         <b-form-fieldset horizontal label="Rows per page" class="col-2" :label-size= "6">
       <b-form-select :options="[{text:5,value:5},{text:10,value:10}]" v-model="perPage">
       </b-form-select>
     </b-form-fieldset>
@@ -40,17 +43,18 @@
     },
     data() {
         return {
+            showDissmisbleAlert:true,
             fields: ['name', 'stocks_owned', 'stocks_price', 'stocks_trend_1year', 'stocks_trend_24h', 'actions'],
             perPage: 5,
             currentPage: 1,
             filter:'',
             items: [
                 { name: 'Investor B', stocks_owned: 15, stocks_price: 123, stocks_trend_1year: +10, stocks_trend_24h: -60, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Hennes & Mauritz AB', stocks_owned: 80, stocks_price: 306, stocks_trend_1year: 2590, stocks_trend_24h: 59,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'Hennes & Mauritz AB', stocks_owned: 80, stocks_price: 306, stocks_trend_1year: 2590, stocks_trend_24h: -59,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
           { name: 'Kinnevik B', stocks_owned: 106, stocks_price: 103, stocks_trend_1year: -2210, stocks_trend_24h: -16,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
           { name: 'Volvo B', stocks_owned: 12, stocks_price: 125, stocks_trend_1year: 1256, stocks_trend_24h: -156,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Swedbank A', stocks_owned: 86, stocks_price: 230, stocks_trend_1year: 459, stocks_trend_24h: 56,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'SAS', stocks_owned: 29, stocks_price: 415, stocks_trend_1year: -45, stocks_trend_24h: 95,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'Swedbank A', stocks_owned: 86, stocks_price: 230, stocks_trend_1year: 459, stocks_trend_24h: -56,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'SAS', stocks_owned: 29, stocks_price: 415, stocks_trend_1year: -45, stocks_trend_24h: -95,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
           { name: 'Latour B', stocks_owned: 156, stocks_price: 156, stocks_trend_1year: 1562, stocks_trend_24h: 1.3,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
           { name: 'Embracer Group B', stocks_owned: 45, stocks_price: 94, stocks_trend_1year: 4586, stocks_trend_24h: 24.9,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
            { name: 'Axfood', stocks_owned: 48, stocks_price: 456, stocks_trend_1year: -4569, stocks_trend_24h: 12,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }   
@@ -68,12 +72,16 @@
         0
       )
     }
+    
     },
     methods: {
         deleteItem: function(task){
     this.items.splice(this.items.indexOf(task), 1);
 }
-    }
+    },
+    
+    
+    
 }
 </script>
 <style scoped>
