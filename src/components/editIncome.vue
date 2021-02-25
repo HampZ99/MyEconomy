@@ -19,6 +19,7 @@ export default {
   methods: {
       onSubmit(){
           this.$emit('new-income', this.income)
+          console.log('hi')
       }
   }
 

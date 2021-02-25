@@ -19,10 +19,11 @@
       <b-col cols="4"> 
         <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>        
         <h5 id="header"> History </h5> 
-          <addHistory @value-inputs="receiveInputs"></addHistory>        
+          <addHistory @input-data="receiveInputs"></addHistory> 
+          <!-- <p>{{receivedData.cost}}kr, {{receivedData.description}}, time: {{receivedData.time}}</p>        -->
           <b-list-group>
             <b-list-group-item button class="button">Today</b-list-group-item>
-            <b-list-group-item href="#" variant="secondary" v-for="cost in costs" :key="cost">-{{o.cost}}kr, toilet paper</b-list-group-item> 
+            <b-list-group-item href="#" variant="secondary" v-for="data in receivedDatas" :key="data.key">{{data.cost}}kr, {{data.description}}, time: {{data.time}}</b-list-group-item> 
             <!-- <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
             <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>  -->
           </b-list-group>
@@ -42,15 +43,15 @@
       <b-col cols="4">     
         <b-list-group>
           <b-list-group-item button class="button">Yesterday</b-list-group-item>
-          <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping</b-list-group-item>
-          <b-list-group-item href="#" variant="light">-34kr, transportation fee</b-list-group-item>
-          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>  
+          <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping, time: 17:00:00</b-list-group-item>
+          <!-- <b-list-group-item href="#" variant="light">-34kr, transportation fee</b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>   -->
         </b-list-group>        
         <b-list-group>
           <b-list-group-item button class="button">This Month</b-list-group-item>
-          <b-list-group-item href="#" variant="secondary">-45kr, toilet paper</b-list-group-item> 
-          <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
-          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item> 
+          <b-list-group-item href="#" variant="secondary">-45kr, toilet paper, time: 16:30:00</b-list-group-item> 
+          <b-list-group-item href="#" variant="light">-85kr, pizza lunch, time: 12:30:00</b-list-group-item> 
+          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee, time: 09:00:00</b-list-group-item> 
         </b-list-group> 
       </b-col>
     </b-row>    
@@ -67,15 +68,20 @@
         },
     data(){
       return {
-        costs: [],
-        description: '',
-        value: ''
+        //receivedData: '',
+        receivedDatas: []
+        // costs: [],
+        // description: '',
+        // value: ''
       }
     },
     methods: {
-      receiveInputs(o){
-        this.cost = o.cost
-        console.log(o)
+      receiveInputs(value){
+        value.key = Math.random()
+        //this.cost = o.cost
+        //this.receivedData = value 
+        //console.log(o)
+        this.receivedDatas.unshift(value)
       }
     }    
   }
