@@ -53,6 +53,7 @@
       </div>
       <div id="cardWrapRight">
         <h1>idk</h1>
+        <expense-history />
       </div>
     </div>
   </div>
@@ -61,11 +62,13 @@
 <script>
   import ChartDoughnut from '@/components/ChartDoughnut'
   import Header from '@/components/Header'
+  import ExpenseHistory from '../components/expenses/ExpenseHistory.vue'
 
   export default {
     components: {
       Header,
-      ChartDoughnut
+      ChartDoughnut,
+      ExpenseHistory
     }
   }
 </script>
