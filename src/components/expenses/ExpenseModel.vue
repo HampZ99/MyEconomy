@@ -1,5 +1,14 @@
 <template>
   <b-modal id="modal-center" title="Add Expense" size="lg" centered hide-footer>
+    <b-alert
+      @dismiss-count-down="countDownChanged"
+      :show="dismissCountDown"
+      variant="success"
+      dismissible
+      fade
+    >
+      Expense Added
+    </b-alert>
     <b-form @submit="onSubmit">
       <div class="row mb-2 mt-2">
         <div class="col-md-6">
@@ -63,8 +72,12 @@
   export default {
     data() {
       return {
+        dismissCountDown: 0,
+        showDismissibleAlert: false,
         form: {
+          id: null,
           name: null,
+          amount: null,
           type: null,
           date: null
         },
@@ -81,7 +94,13 @@
     methods: {
       onSubmit(event) {
         event.preventDefault()
-        console.log(JSON.stringify(this.form))
+        this.id = this.$uuid.v4()
+        this.$store.commit('addExpense', this.form)
+
+        this.dismissCountDown = 5
+      },
+      countDownChanged(dismissCountDown) {
+        this.dismissCountDown = dismissCountDown
       }
     }
   }

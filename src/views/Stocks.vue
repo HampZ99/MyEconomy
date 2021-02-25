@@ -3,15 +3,17 @@
     <div class="header">
       <Header title="Stocks" desc="Welcome Back" :date="true" />
     </div>
+    <h1>Your stocks</h1>
+    
     <div class="table">
          <b-form-fieldset horizontal label="Rows per page" class="col-2" :label-size="6">
       <b-form-select :options="[{text:5,value:5},{text:10,value:10}]" v-model="perPage">
       </b-form-select>
     </b-form-fieldset>
         <b-table fixed responsive="" class="banner"  hover bordered table-responsive :items="items" :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields'>
-            <template v-slot:cell(actions) = 'data'>
-                <b-button variant="danger" @click="deleteItem(data.item.name)">Delete</b-button> /
-                <b-button variant="primary"> Buy</b-button>
+            <template v-slot:cell(actions) = 'tasks'>
+                <b-button variant="danger" @click="deleteItem(tasks.item)">Delete</b-button> /
+                <b-button a href="https://www.swedbank.se/" variant="primary"> Buy</b-button>
                 
             </template>
         </b-table>
@@ -50,7 +52,7 @@
           { name: 'Swedbank A', stocks_owned: 86, stocks_price: 230, stocks_trend_1year: 459, stocks_trend_24h: 56,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
           { name: 'SAS', stocks_owned: 29, stocks_price: 415, stocks_trend_1year: -45, stocks_trend_24h: 95,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
           { name: 'Latour B', stocks_owned: 156, stocks_price: 156, stocks_trend_1year: 1562, stocks_trend_24h: 1.3,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Embracer Group B', stocks_owned: 45, stocks_price: 94, stocks_trend_1year: 4586, stocks_trend_24h: 12.9,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'Embracer Group B', stocks_owned: 45, stocks_price: 94, stocks_trend_1year: 4586, stocks_trend_24h: 24.9,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
            { name: 'Axfood', stocks_owned: 48, stocks_price: 456, stocks_trend_1year: -4569, stocks_trend_24h: 12,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }   
         ]
       }
@@ -62,16 +64,15 @@
         total() {
             return Object.values(this.items).reduce(
                 (accumulator, value) =>
-          accumulator + value.stocks_trend_24h ,
+           accumulator + value.stocks_trend_24h * value.stocks_owned * 100 / 100 ,
         0
       )
     }
     },
     methods: {
-        deleteItem(name) {
-            const index = this.items.indexOf((x) => x.name === name)
-            this.items.splice(index,1)
-        }
+        deleteItem: function(task){
+    this.items.splice(this.items.indexOf(task), 1);
+}
     }
 }
 </script>
@@ -89,7 +90,7 @@
     float: left;
     margin-top: 30px;
   }
-  .span input {
+  span input {
     text-align: center;
     background-color:#dee2e6;
 }

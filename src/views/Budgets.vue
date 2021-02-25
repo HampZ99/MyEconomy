@@ -1,63 +1,33 @@
 <template>
   <div class="Budget">
     <Header title="Budgets" desc="Welcome Back" :date="true" />
-    <div id="content">
-      <div id="budgetCards" class="travels">
-        <h3>
-          Travels
-          <img
-            id="icon"
-            src="@/assets/DashboardIcons/plane.png"
-            alt="planeIcon"
-          />
-        </h3>
-        <h2>1300 SEK</h2>
-      </div>
-      <div id="budgetCards">
-        <h3>
-          Foods
-          <img
-            id="icon"
-            src="@/assets/DashboardIcons/hamburger.png"
-            alt="hamburgerIcon"
-          />
-        </h3>
-        <h2>3500 SEK</h2>
-      </div>
-      <div id="budgetCards">
-        <h3>
-          Clothes
-          <img
-            id="icon"
-            src="@/assets/DashboardIcons/shirt.png"
-            alt="shirtIcon"
-          />
-        </h3>
-        <h2>800 SEK</h2>
-      </div>
-      <div id="budgetCards">
-        <h3>
-          Savings
-          <img
-            id="icon"
-            src="@/assets/DashboardIcons/coins.png"
-            alt="coinsIcon"
-          />
-        </h3>
-        <h2>2000 SEK</h2>
-      </div>
-      <input id="btn" type="button" value="Edit budgets" />
-      <input class="lastBtn" id="btn" type="button" value="Add budgets" />
+    <BudgetNumbers />
+    <div>
+      <form class="txtBox">
+        <input
+          style="margin-left: 0em;"
+          id="txtInput"
+          type="text"
+          placeholder="Travels Amount..."
+        />
+        <input id="txtInput" type="text" placeholder="Foods Amount..." />
+        <input id="txtInput" type="text" placeholder="Clothes Amount..." />
+        <input id="txtInput" type="text" placeholder="Savings Amount..." />
+        <br />
+        <input id="btn" type="button" value="Edit budgets" />
+      </form>
     </div>
   </div>
 </template>
 
 <script>
   import Header from '@/components/Header'
+  import BudgetNumbers from '@/components/BudgetNumbers'
 
   export default {
     components: {
-      Header
+      Header,
+      BudgetNumbers
     }
   }
 </script>
@@ -70,51 +40,31 @@
     font-family: 'Open Sans', sans-serif;
     float: left;
   }
-  #content {
+  .txtBox {
     width: calc(100% - 4em);
-    height: 100vh;
+    margin-top: 2em;
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 2em;
     float: left;
-  }
-  #budgetCards {
-    width: calc(25% - 1.5em);
-    height: 15%;
-    padding: 10px;
-    background-color: #ffffff;
-    border-radius: 6px;
-    border: 2px solid hsla(0, 0%, 0%, 0.2);
-    text-align: left;
-    margin-left: 2em;
-    float: left;
-  }
-  #budgetCards h3 {
-    margin-top: 0em;
-  }
-  #budgetCards h2 {
-    margin-top: 1.5em;
-    margin-bottom: 0em;
-    float: left;
-    font-size: 28px;
-  }
-  #icon {
-    width: 20px;
-    height: 20px;
-    float: right;
-    margin-top: 0.3em;
-  }
-  .travels {
-    margin-left: 0em !important;
-  }
-  .lastBtn {
-    margin-left: 2em;
   }
   #btn {
     background-color: #9eb9ff;
     border: 1px solid hsla(0, 0%, 0%, 0.1);
     border-radius: 6px;
     color: #ffffff;
-    margin-top: 2em;
+    margin-left: calc(75% + 1em);
+  }
+  #txtInput {
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 2px solid hsla(0, 0%, 0%, 0.2);
+    text-align: center;
   }
   @media (max-width: 576px) {
+    .Budget {
+      margin-left: 1em;
+    }
     #budgetCards {
       width: 100%;
       float: left;
@@ -123,6 +73,19 @@
     }
     #budgetCards h2 {
       margin-top: 0em;
+    }
+    .txtBox {
+      display: block;
+    }
+    #txtInput {
+      width: calc(100% + 2em);
+      margin-bottom: 1em;
+      height: auto;
+      float: left;
+    }
+    #btn {
+      margin-left: calc(25% - 2em);
+      margin-bottom: 2em;
     }
   }
 </style>

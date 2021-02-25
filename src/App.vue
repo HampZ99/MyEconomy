@@ -164,7 +164,7 @@
 
   .sidebar .bottom {
     position: absolute;
-    bottom: 1.5rem;
+    bottom: 2rem;
     width: 100%;
   }
 
