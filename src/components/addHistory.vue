@@ -5,6 +5,7 @@
           <b-form-input type="text" v-model="description" placeholder="Add description"></b-form-input>
           <b-form-timepicker v-model="value" locale="en"></b-form-timepicker>
           <b-button type="submit" id="button">Save</b-button>
+          <b-button type="reset" id="reset-btn">Reset</b-button>
       </b-form>      
   </div>
 </template>
@@ -57,7 +58,10 @@ export default {
 
 <style scoped>
   #button {
-      background-color: #9eb9ff;
+      background-color: #9eb9ff;      
+  }
+  #reset-btn {
+      background-color: rgb(226, 43, 202);
   }
 
 </style>

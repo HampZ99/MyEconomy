@@ -13,19 +13,21 @@
         <b-tooltip target="tooltip-target-1" triggers="hover">
           You have <b>4372,6</b> cash remain untill your next salary!
         </b-tooltip>
-        <p>Left This Month</p>
-        <span>My income <b>35000</b> SEK</span>        
+        <div>Left This Month</div>
+        <div>My income <b>{{myIncome}} SEK</b> </div>        
+        <b-dropdown id="edit-btn" text="Edit">
+           <b-dropdow-item>             
+             <b-form-input v-model="myIncome" placeholder="my new income"></b-form-input>
+           </b-dropdow-item>
+        </b-dropdown>        
       </b-col>
       <b-col cols="4"> 
-        <b-icon icon="arrow-right" id="icon-arrow-right"></b-icon>        
+        <b-icon icon="arrow-right" id="icon-arrow-right" @click="redirectUser"></b-icon>        
         <h5 id="header"> History </h5> 
-          <addHistory @input-data="receiveInputs"></addHistory> 
-          <!-- <p>{{receivedData.cost}}kr, {{receivedData.description}}, time: {{receivedData.time}}</p>        -->
+          <addHistory @input-data="receiveInputs"></addHistory>           
           <b-list-group>
             <b-list-group-item button class="button">Today</b-list-group-item>
-            <b-list-group-item href="#" variant="secondary" v-for="data in receivedDatas" :key="data.key">{{data.cost}}kr, {{data.description}}, time: {{data.time}}</b-list-group-item> 
-            <!-- <b-list-group-item href="#" variant="light">-85kr, pizza lunch</b-list-group-item> 
-            <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>  -->
+            <b-list-group-item href="#" variant="secondary" v-for="data in receivedDatas" :key="data.key">{{data.cost}}kr, {{data.description}}, time: {{data.time}}</b-list-group-item>            
           </b-list-group>
       </b-col>
     </b-row>
@@ -59,30 +61,38 @@
 </template>
 
 <script>
+  import router from '@/router/index.js';
   import Header from '@/components/Header';
-  import addHistory from '@/components/addHistory';
+  import addHistory from '@/components/addHistory'; 
   export default {
     components: {
         Header,
         addHistory
         },
     data(){
-      return {
-        //receivedData: '',
-        receivedDatas: []
-        // costs: [],
-        // description: '',
-        // value: ''
+      return {        
+        receivedDatas: [],
+        myIncome: ''
+      }
+    },
+    mounted(){
+      if (localStorage.myIncome) {
+        this.myIncome = localStorage.myIncome
+      }
+    },
+    watch: {
+      myIncome(newMyIncome){
+        localStorage.myIncome = newMyIncome
       }
     },
     methods: {
       receiveInputs(value){
-        value.key = Math.random()
-        //this.cost = o.cost
-        //this.receivedData = value 
-        //console.log(o)
+        value.key = Math.random()      
         this.receivedDatas.unshift(value)
-      }
+      },
+      redirectUser(){        
+          router.push({name: 'Home'})        
+      },      
     }    
   }
 </script>
@@ -125,7 +135,10 @@
       margin-top:-130px;
       display: block;
   }
-  .button{
+  .button {
       color: #9eb9ff;
+  }
+  #edit-btn {
+    margin-left: 5px;
   }
 </style>
