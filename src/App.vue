@@ -21,8 +21,10 @@
             <b-icon-person-fill font-scale="4.5" />
           </div>
           <div class="info">
-            <h3>User Profile</h3>
-            <p>usertest@hotmail.com</p>
+            <h3>{{ name }}</h3>
+            <p>
+              {{ email }}
+            </p>
           </div>
         </div>
         <div class="items">
@@ -85,8 +87,14 @@
     },
     data() {
       return {
-        showSidebar: undefined
+        showSidebar: undefined,
+        email: '',
+        name: ''
       }
+    },
+    mounted() {
+      this.email = localStorage.email
+      this.name = localStorage.name
     }
   }
 </script>

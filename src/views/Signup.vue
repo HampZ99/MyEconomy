@@ -50,7 +50,7 @@
             <div class="col-sm-10">
               <b-input-group class="mb-2">
                 <b-form-input
-                  type="password"
+                  :type="type"
                   placeholder="Password"
                   v-model="password"
                   :state="passwordvalidate"
@@ -110,7 +110,31 @@
         name: '',
         email: '',
         password: '',
-        hasSubmitted: false
+        hasSubmitted: false,
+        type: 'password'
+      }
+    },
+
+    mounted() {
+      if (localStorage.name) {
+        this.name = localStorage.name
+      }
+      if (localStorage.password) {
+        this.password = localStorage.password
+      }
+      if (localStorage.email) {
+        this.email = localStorage.email
+      }
+    },
+    watch: {
+      name(newName) {
+        localStorage.name = newName
+      },
+      password(newPassword) {
+        localStorage.password = newPassword
+      },
+      email(newEmail) {
+        localStorage.email = newEmail
       }
     },
 
@@ -134,6 +158,9 @@
 
       onclick() {
         this.hasSubmitted = true
+
+        // this.$router.push('/Login')
+
         // this.emailColor = 'green'
       }
     },
