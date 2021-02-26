@@ -1,12 +1,12 @@
 <template>
   <div>
-      <b-form class="add"  @submit="onSubmit">
+      <b-form class="add"  @submit="onSubmit">          
           <b-form-input type="number" v-model="cost" placeholder="Add cost"></b-form-input>
-          <b-form-input type="text" :value="description" placeholder="Add description"></b-form-input>
-          <b-form-timepicker :value="value" locale="en"></b-form-timepicker>
+          <b-form-input type="text" v-model="description" placeholder="Add description"></b-form-input>
+          <b-form-timepicker v-model="value" locale="en"></b-form-timepicker>
           <b-button type="submit" id="button">Save</b-button>
-      </b-form>
-      <!-- <div>-{{cost}}kr, {{description}}, {{value}}</div> -->
+          <b-button type="reset" id="reset-btn">Reset</b-button>
+      </b-form>      
   </div>
 </template>
 
@@ -18,14 +18,38 @@ export default {
             cost:'',
             description:'',
             value:''
+            
+        }
+    },
+    mounted(){
+        if (localStorage.cost) {
+            this.cost = localStorage.cost
+        }
+        if (localStorage.description) {
+            this.description = localStorage.description
+        }
+        if (localStorage.value) {
+            this.value = localStorage.value
+        }
+    },
+    watch: {
+        cost(newCost) {
+            localStorage.cost = newCost
+        },
+        description(newDescription) {
+            localStorage.description = newDescription
+        },
+        value(newValue) {
+            localStorage.value = newValue
         }
     },
     methods: {
         onSubmit(){
             //console.log('abc')
-            this.$emit('value-inputs',{cost:this.cost, 
+            this.$emit('input-data',{cost:this.cost, 
             description:this.description, 
-            value:this.value})
+            time:this.value})
+            
             
         }
     }
@@ -34,7 +58,10 @@ export default {
 
 <style scoped>
   #button {
-      background-color: #9eb9ff;
+      background-color: #9eb9ff;      
+  }
+  #reset-btn {
+      background-color: rgb(226, 43, 202);
   }
 
 </style>
