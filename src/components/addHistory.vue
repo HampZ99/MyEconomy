@@ -58,10 +58,18 @@ export default {
 
 <style scoped>
   #button {
-      background-color: #9eb9ff;      
+      background-color: #9eb9ff; 
+      margin-top: 5px;
+      margin-bottom: 15px;     
+      padding-left: 27px;
+      padding-right: 27px;
   }
   #reset-btn {
       background-color: rgb(226, 43, 202);
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding-left: 27px;
+      padding-right: 27px;
   }
 
 </style>

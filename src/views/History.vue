@@ -13,11 +13,11 @@
         <b-tooltip target="tooltip-target-1" triggers="hover">
           You have <b>4372,6</b> cash remain untill your next salary!
         </b-tooltip>
-        <div>Left This Month</div>
-        <div>My income <b>{{myIncome}} SEK</b> </div>        
+        <div>Remain This Month</div>
+        <div>My income <b>{{myIncome}}</b> SEK </div>        
         <b-dropdown id="edit-btn" text="Edit">
            <b-dropdow-item>             
-             <b-form-input v-model="myIncome" placeholder="my new income"></b-form-input>
+             <b-form-input v-model="myIncome" placeholder="my new income" type="number"></b-form-input>
            </b-dropdow-item>
         </b-dropdown>        
       </b-col>
@@ -72,18 +72,39 @@
     data(){
       return {        
         receivedDatas: [],
-        myIncome: ''
+        myIncome: '',
+        cost: '',
+        description: '',
+        time: '',
       }
     },
     mounted(){
       if (localStorage.myIncome) {
         this.myIncome = localStorage.myIncome
       }
+      // if (localStorage.cost) {
+      //   this.cost = localStorage.cost
+      // }
+      // if (localStorage.description) {
+      //   this.description = localStorage.description
+      // }
+      // if (localStorage.time) {
+      //   this.time = localStorage.time
+      // }
     },
     watch: {
       myIncome(newMyIncome){
         localStorage.myIncome = newMyIncome
-      }
+      },
+      // cost(newCost){
+      //   localStorage.cost = newCost
+      // },
+      // description(newDescription){
+      //   localStorage.description = newDescription
+      // },
+      // time(newTime){
+      //   localStorage.time = newTime
+      // },
     },
     methods: {
       receiveInputs(value){
@@ -140,5 +161,6 @@
   }
   #edit-btn {
     margin-left: 5px;
+    margin-top: 5px;
   }
 </style>
