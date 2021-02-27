@@ -13,12 +13,18 @@
       <b-form-select :options="[{text:5,value:5},{text:10,value:10}]" v-model="perPage">
       </b-form-select>
     </b-form-fieldset>
-        <b-table fixed responsive="" class="banner"  hover bordered table-responsive :items="items"  :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields'>
+    <div class="table-responsive">
+        <b-table fixed responsive="" class="banner"  hover bordered  :items="items"  :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc">
             <template v-slot:cell(actions) = 'tasks'>
                 <b-button variant="danger" @click="deleteItem(tasks.item)">Delete</b-button> /
                 <b-button a href="https://www.swedbank.se/" variant="primary"> Buy</b-button>
             </template>
+             <div>
+      Sorting By: <b>{{ sortBy }}</b>, Sort Direction:
+      <b>{{ sortDesc ? 'Descending' : 'Ascending' }}</b>
+    </div>
         </b-table>
+    </div>
         <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage"></b-pagination>
     </div>
     <div class="total">
@@ -33,6 +39,8 @@
     </div>
   </div>
 </template>
+            
+            
     
 <script>
   import Header from '@/components/Header'
@@ -42,7 +50,15 @@
     },
     data() {
         return {
-            fields: ['name', 'stocks_owned', 'stocks_price', 'stocks_trend_1year', 'stocks_trend_24h', 'actions'],
+            sortBy: 'name',
+        sortDesc: false,
+            fields: [
+            {key:'name', sortable: true },
+            {key:'stocks_owned', sortable: true}, 
+            {key: 'stocks_price', sortable: true},
+            {key: 'stocks_trend_1year', sortable: true}, 
+            {key: 'stocks_trend_24h', sortable: true},
+            {key:'actions', sortable: false } ],
             perPage: 5,
             currentPage: 1,
             filter:'',
@@ -102,6 +118,7 @@
 .table {
     width: 100%;
 }
+
 </style>
             
        
