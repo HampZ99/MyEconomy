@@ -9,17 +9,28 @@
         </div>
       </div>
       <div id="cardWrapRight">
-        <h2>
-          Money spent
-          <!-- <img
+        <div style="z-index:1;position: relative;">
+          <h2>
+            Money spent
+            <!-- <img
             id="iconMoney"
             src="@/assets/DashboardIcons/money.png"
             alt="coinsIcon"
           /> -->
-        </h2>
-        <hr style="margin-bottom: 7em;" />
-        <h4 style="margin-bottom: 1em; text-align:center;">19 days left</h4>
-        <ProgressBar id="progress" />
+          </h2>
+          <hr />
+        </div>
+        <img
+          src="http://localhost:8080/img/coin.a10591dc.gif"
+          alt="Coin"
+          width="380"
+          style="margin-top: -5rem;"
+        />
+        <div style="margin-top:-4rem;z-index:1;position: relative;">
+          <h4 style="margin-bottom: 1em; text-align:center;">19 days left</h4>
+          <ProgressBar id="progress" />
+        </div>
+        <expense-history />
       </div>
     </div>
   </div>
@@ -30,13 +41,15 @@
   import Header from '@/components/Header'
   import BudgetNumbers from '@/components/BudgetNumbers'
   import ProgressBar from '@/components/ProgressBar'
+  import ExpenseHistory from '../components/expenses/ExpenseHistory.vue'
 
   export default {
     components: {
       Header,
       ChartDoughnut,
       BudgetNumbers,
-      ProgressBar
+      ProgressBar,
+      ExpenseHistory
     }
   }
 </script>
@@ -66,13 +79,13 @@
     margin-bottom: 2em;
   }
   #cardWrapRight {
-    background: url('../assets/DashboardIcons/coin.gif');
+    /* background: url('../assets/DashboardIcons/coin.gif'); */
     background-size: cover;
     background-position: center;
     background-position-y: bottom;
     background-repeat: no-repeat;
     width: calc(50% - 2em);
-    height: calc(346.4px - 2em);
+    height: 100%;
     float: left;
     margin-bottom: 2em;
     padding: 10px;

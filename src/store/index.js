@@ -10,7 +10,7 @@ export default new Vuex.Store({
   },
   mutations: {
     addExpense(state, expense) {
-      state.expenses.push(expense)
+      state.expenses.push(Object.assign({}, expense))
     }
   },
   actions: {},

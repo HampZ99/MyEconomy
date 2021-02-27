@@ -97,6 +97,11 @@
         this.id = this.$uuid.v4()
         this.$store.commit('addExpense', this.form)
 
+        this.form.id = null
+        this.form.name = null
+        this.form.amount = null
+        this.form.type = null
+        this.form.date = null
         this.dismissCountDown = 5
       },
       countDownChanged(dismissCountDown) {

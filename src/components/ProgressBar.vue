@@ -12,8 +12,16 @@
   export default {
     data() {
       return {
-        value: 8535,
-        max: 16782
+        value: 0,
+        max: 10000
+      }
+    },
+    mounted() {
+      if (localStorage.myIncome) {
+        this.max = localStorage.myIncome
+      }
+      for (let n = 0; n < this.$store.state.expenses.length; n++) {
+        this.value += parseInt(this.$store.state.expenses[n].amount)
       }
     }
   }
