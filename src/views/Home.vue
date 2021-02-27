@@ -21,7 +21,7 @@
           <hr />
         </div>
         <img
-          src="http://localhost:8080/img/coin.a10591dc.gif"
+          src="../assets/DashboardIcons/coin.gif"
           alt="Coin"
           width="380"
           style="margin-top: -5rem;"
