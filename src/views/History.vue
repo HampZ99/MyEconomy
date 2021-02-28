@@ -9,7 +9,7 @@
     </b-row>    
     <b-row align-v="stretch">    
       <b-col cols="8" class="current-cash">
-        <span id="tooltip-target-1" class="number">4372,6 SEK</span>       
+        <div id="tooltip-target-1" class="number">{{cashRemain}} SEK</div>       
         <b-tooltip target="tooltip-target-1" triggers="hover">
           You have <b>4372,6</b> cash remain untill your next salary!
         </b-tooltip>
@@ -27,27 +27,30 @@
           <addHistory @input-data="receiveInputs"></addHistory>           
           <b-list-group>
             <b-list-group-item button class="button">Today</b-list-group-item>
-            <b-list-group-item href="#" variant="secondary" v-for="data in receivedDatas" :key="data.key">{{data.cost}}kr, {{data.description}}, time: {{data.time}}</b-list-group-item>            
+            <b-list-group-item href="#" variant="secondary" v-for="data in receivedDatas" :key="data.key">
+              {{data.cost}}kr, {{data.description}}, time: {{data.time}}
+              <b-icon icon="trash" @click="removeInputs(n)"></b-icon>               
+            </b-list-group-item> 
+            <!-- input datas do not remain on the browser when refreshing but can be seen on localStorage, why?   -->
           </b-list-group>
       </b-col>
     </b-row>
     <b-row align-v="stretch">        
       <b-col cols="8" class="days-left">
-        <b-icon icon="arrow-clockwise" id="icon-arrow-clockwise" animation="spin"></b-icon>
-        <b-tooltip target="icon-arrow-clockwise" triggers="hover">
-          There are <b>19</b> days remain until your next salary!
-        </b-tooltip> 
-          <div id="text-wrapper">
-             <span class="number">19</span>
-             <p>Days Left</p>
-          </div>
+        <Countdown 
+        :year="2021"
+        :month="2"
+        :date="25"
+        :hour="23"
+        :minute="59"
+        :second="59"
+        :millisecond="31"
+        />        
       </b-col>
       <b-col cols="4">     
         <b-list-group>
           <b-list-group-item button class="button">Yesterday</b-list-group-item>
-          <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping, time: 17:00:00</b-list-group-item>
-          <!-- <b-list-group-item href="#" variant="light">-34kr, transportation fee</b-list-group-item>
-          <b-list-group-item href="#" variant="secondary">-25kr, morning coffee</b-list-group-item>   -->
+          <b-list-group-item href="#" variant="secondary">-450kr, grocery shopping, time: 17:00:00</b-list-group-item>          
         </b-list-group>        
         <b-list-group>
           <b-list-group-item button class="button">This Month</b-list-group-item>
@@ -64,47 +67,36 @@
   import router from '@/router/index.js';
   import Header from '@/components/Header';
   import addHistory from '@/components/addHistory'; 
+  import Countdown from '@/components/Countdown'; 
   export default {
     components: {
         Header,
-        addHistory
+        addHistory,
+        Countdown
         },
     data(){
       return {        
         receivedDatas: [],
         myIncome: '',
-        cost: '',
-        description: '',
-        time: '',
+        cashRemain: '4834'        
       }
     },
     mounted(){
       if (localStorage.myIncome) {
         this.myIncome = localStorage.myIncome
       }
-      // if (localStorage.cost) {
-      //   this.cost = localStorage.cost
-      // }
-      // if (localStorage.description) {
-      //   this.description = localStorage.description
-      // }
-      // if (localStorage.time) {
-      //   this.time = localStorage.time
-      // }
+      if (localStorage.getItem('receivedDatas')) {
+        try {
+          this.receivedDatas = JSON.parse(localStorage.getItem('receivedDatas'))
+        } catch(e) {
+          localStorage.removeItem('receivedDatas')
+        }
+      }      
     },
     watch: {
       myIncome(newMyIncome){
         localStorage.myIncome = newMyIncome
       },
-      // cost(newCost){
-      //   localStorage.cost = newCost
-      // },
-      // description(newDescription){
-      //   localStorage.description = newDescription
-      // },
-      // time(newTime){
-      //   localStorage.time = newTime
-      // },
     },
     methods: {
       receiveInputs(value){
@@ -113,7 +105,32 @@
       },
       redirectUser(){        
           router.push({name: 'Home'})        
-      },      
+      },
+      removeInputs(x) {
+        this.receivedDatas.splice(x, 1)
+        this.saveReceivedDatas()
+      },
+      saveReceivedDatas() {
+        const parsed = JSON.stringify(this.receivedDatas)
+        localStorage.setItem('receivedDatas', parsed)
+      },
+      // cashRemain() {
+      //   this.myIncome - this.value.cost
+      // }      
+    },
+    //computed no working, need to fix it
+    computed: {
+      updateCashRemain: {
+       
+        get: function(){
+          return this.myIncome
+        },
+        set: function(value) {
+          const newValue = value.cost 
+          this.cashRemain = this.myIncome - newValue
+        }
+
+      }
     }    
   }
 </script>
@@ -144,18 +161,7 @@
   .number {
     font-size: 30px;
     font-weight: 500;   
-  }
-  #icon-arrow-clockwise{
-      width: 190px; 
-      height: 190px;
-      color: #ffffff;
-      align-content: center;      
-  } 
-  /* need to position the text over the icon */
-  #text-wrapper{
-      margin-top:-130px;
-      display: block;
-  }
+  }  
   .button {
       color: #9eb9ff;
   }

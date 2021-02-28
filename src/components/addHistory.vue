@@ -1,7 +1,7 @@
 <template>
   <div>
       <b-form class="add"  @submit="onSubmit">          
-          <b-form-input type="number" v-model="cost" placeholder="Add cost"></b-form-input>
+          <b-form-input type="number" v-model="cost" placeholder="Add minus number for expense"></b-form-input>
           <b-form-input type="text" v-model="description" placeholder="Add description"></b-form-input>
           <b-form-timepicker v-model="value" locale="en"></b-form-timepicker>
           <b-button type="submit" id="button">Save</b-button>
