@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-center" title="Add Expense" size="lg" centered hide-footer>
+  <b-modal id="addExpense" title="Add Expense" size="lg" centered hide-footer>
     <b-alert
       @dismiss-count-down="countDownChanged"
       :show="dismissCountDown"

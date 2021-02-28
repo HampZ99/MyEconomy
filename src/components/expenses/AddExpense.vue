@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-b-modal.modal-center>Add Expense</button>
+    <button v-b-modal.addExpense>Add Expense</button>
     <ExpenseModel />
   </div>
 </template>
