@@ -1,5 +1,9 @@
 <template>
-  <div v-if="onboard">
+  <div
+    v-if="
+      onboard && this.$route.name !== 'Login' && this.$route.name !== 'Signup'
+    "
+  >
     <div class="onboard-overlay"></div>
     <div class="onboard" v-for="onboard in onboardItem" :key="onboard.step">
       <template v-if="onboard.step === currentStep">
@@ -174,5 +178,26 @@
     cursor: pointer;
     height: 8px;
     width: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .onboard {
+      display: block;
+      height: auto;
+      width: 100%;
+      bottom: unset;
+      top: 8rem;
+    }
+    .onboard .image {
+      justify-content: center;
+      padding: 1rem 0;
+      border-radius: 0;
+    }
+    .onboard .desc {
+      margin: 2rem 1.5rem;
+    }
+    .onboard .actions {
+      position: initial;
+    }
   }
 </style>
