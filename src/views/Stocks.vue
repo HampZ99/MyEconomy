@@ -4,6 +4,10 @@
       <Header title="Stocks" desc="Welcome Back" :date="true" />
     </div>
     <h1>Your stocks</h1>
+    <div class="h2 mb-0">
+    
+    
+  </div>
     <b-container>
     <b-alert v-if="total < 0" show variant="warning" dismissible fade>Some stocks are loosing money</b-alert>
     <b-alert v-else show variant="success" dismissible fade>You are winning money</b-alert>
@@ -16,8 +20,8 @@
     <div class="table-responsive">
         <b-table fixed responsive="" class="banner"  hover bordered  :items="items"  :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc">
             <template v-slot:cell(actions) = 'tasks'>
-                <b-button variant="danger" @click="deleteItem(tasks.item)">Delete</b-button> /
-                <b-button a href="https://www.swedbank.se/" variant="primary"> Buy</b-button>
+                <b-button variant="danger" @click="deleteItem(tasks.item)"><b-icon icon="trash" aria-hidden="true"></b-icon></b-button> /
+                <b-button a href="https://www.swedbank.se/" variant="primary"> <b-icon icon="basket" aria-hidden="true"></b-icon></b-button>
             </template>
              <div>
       Sorting By: <b>{{ sortBy }}</b>, Sort Direction:
