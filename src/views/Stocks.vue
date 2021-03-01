@@ -18,7 +18,7 @@
       </b-form-select>
     </b-form-fieldset>
     <div class="table-responsive">
-        <b-table fixed responsive="" class="banner"  hover bordered  :items="items"  :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc">
+        <b-table fixed stacked="sm" class="banner"  hover bordered  :items="items"  :filter='filter' :per-page='perPage' :current-page="currentPage" :fields ='fields' :sort-by.sync="sortBy" :sort-desc.sync="sortDesc">
             <template v-slot:cell(actions) = 'tasks'>
                 <b-button variant="danger" @click="deleteItem(tasks.item)"><b-icon icon="trash" aria-hidden="true"></b-icon></b-button> /
                 <b-button a href="https://www.swedbank.se/" variant="primary"> <b-icon icon="basket" aria-hidden="true"></b-icon></b-button>
@@ -67,15 +67,15 @@
             currentPage: 1,
             filter:'',
             items: [
-                { name: 'Investor B', stocks_owned: 15, stocks_price: 123, stocks_trend_1year: +10, stocks_trend_24h: Math.floor(Math.random() * 201) - 100, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Hennes & Mauritz AB', stocks_owned: 80, stocks_price: 306, stocks_trend_1year: 2590, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Kinnevik B', stocks_owned: 106, stocks_price: 103, stocks_trend_1year: -2210, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Volvo B', stocks_owned: 12, stocks_price: 125, stocks_trend_1year: 1256, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
-          { name: 'Swedbank A', stocks_owned: 86, stocks_price: 230, stocks_trend_1year: 459, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+                { name: 'SEB', stocks_owned: 15, stocks_price: 123, stocks_trend_1year: +10, stocks_trend_24h: Math.floor(Math.random() * 201) - 100, _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'H&M AB', stocks_owned: 80, stocks_price: 306, stocks_trend_1year: 2590, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'Telia', stocks_owned: 106, stocks_price: 103, stocks_trend_1year: -2210, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'Volvo', stocks_owned: 12, stocks_price: 125, stocks_trend_1year: 1256, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }, 
+          { name: 'NEL', stocks_owned: 86, stocks_price: 230, stocks_trend_1year: 459, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
           { name: 'SAS', stocks_owned: 29, stocks_price: 415, stocks_trend_1year: -45, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Latour B', stocks_owned: 156, stocks_price: 156, stocks_trend_1year: 1562, stocks_trend_24h:Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-          { name: 'Embracer Group B', stocks_owned: 45, stocks_price: 94, stocks_trend_1year: 4586, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
-           { name: 'Axfood', stocks_owned: 48, stocks_price: 456, stocks_trend_1year: -4569, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }   
+          { name: 'Mowi', stocks_owned: 156, stocks_price: 156, stocks_trend_1year: 1562, stocks_trend_24h:Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+          { name: 'ICA', stocks_owned: 45, stocks_price: 94, stocks_trend_1year: 4586, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } },
+           { name: 'DNB', stocks_owned: 48, stocks_price: 456, stocks_trend_1year: -4569, stocks_trend_24h: Math.floor(Math.random() * 201) - 100,  _cellVariants: { name: 'dark', stocks_owned: 'secondary', stocks_price: 'primary', stocks_trend_1year: 'secondary',stocks_trend_24h: 'primary' } }   
         ]
       }
     },
@@ -121,6 +121,22 @@
 }
 .table {
     width: 100%;
+}
+@media (max-width: 375px) {
+  h3 {
+   align-content: center;
+  }
+  .search {
+    /* margin-left: 60px;  */
+    align-content: center;
+  }
+}
+@media (max-width: 414px) {
+  
+  .search {
+    margin-left: 80px; 
+   
+  }
 }
 
 </style>
