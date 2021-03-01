@@ -5,8 +5,6 @@
     </div>
     <h1>Your stocks</h1>
     <div class="h2 mb-0">
-    
-    
   </div>
     <b-container>
     <b-alert v-if="total < 0" show variant="warning" dismissible fade>Some stocks are loosing money</b-alert>
@@ -23,6 +21,12 @@
                 <b-button variant="danger" @click="deleteItem(tasks.item)"><b-icon icon="trash" aria-hidden="true"></b-icon></b-button> /
                 <b-button a href="https://www.swedbank.se/" variant="primary"> <b-icon icon="basket" aria-hidden="true"></b-icon></b-button>
             </template>
+            <template v-if="total < 0" v-slot:cell(stocks_trend_24h) = 'data'>
+                <p><span><b-icon  variant="danger" icon="arrow-down" aria-hidden="true"></b-icon></span>{{data.item.stocks_trend_24h}}</p>
+            </template>
+            <template v-else v-slot:cell(stocks_trend_24h) = 'data'>
+                <p><span><b-icon  variant="success" icon="arrow-up" aria-hidden="true"></b-icon></span>{{data.item.stocks_trend_24h}}</p>
+            </template>
              <div>
       Sorting By: <b>{{ sortBy }}</b>, Sort Direction:
       <b>{{ sortDesc ? 'Descending' : 'Ascending' }}</b>
@@ -32,7 +36,7 @@
         <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage"></b-pagination>
     </div>
     <div class="total">
-        <h3>Total winst or loss 24h  <span><input type="column" :value='total'></span></h3>
+        <h3>Total winst or loss 24h  <span><input type="column" :value='total'></span>SEK</h3>
     </div>
     <div class="search">
         <b-row>
@@ -43,8 +47,7 @@
     </div>
   </div>
 </template>
-            
-            
+    
     
 <script>
   import Header from '@/components/Header'
@@ -90,7 +93,6 @@
         0
       )
     },
-    
     },
     methods: {
         deleteItem: function(task){
@@ -98,9 +100,9 @@
 },
     }
 }
-            
-                
 </script>
+    
+    
 <style scoped>
   .Stocks {
     height: 100vh;
@@ -126,20 +128,20 @@
   h3 {
    align-content: center;
   }
-  .search {
-    /* margin-left: 60px;  */
-    align-content: center;
-  }
 }
-@media (max-width: 414px) {
-  
-  .search {
-    margin-left: 80px; 
-   
-  }
-}
-
 </style>
+    
+            
+                
+               
+               
+            
+            
+            
+    
+  
+
+
             
        
             
