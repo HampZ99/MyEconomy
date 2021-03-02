@@ -18,7 +18,7 @@
         horizontal
         label="Rows per page"
         class="col-2"
-        :label-size="5"
+        label-size="5"
       >
         <b-form-select
           :options="[
