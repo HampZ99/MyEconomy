@@ -39,7 +39,9 @@
         <div class="items">
           <ul>
             <li>
-              <router-link to="/"> <b-icon-compass /> Dashboard</router-link>
+              <router-link to="/dashboard">
+                <b-icon-compass /> Dashboard</router-link
+              >
             </li>
             <li>
               <router-link to="/Budgets"> <b-icon-cash /> Budgets</router-link>
