@@ -27,10 +27,16 @@
 
 <style scoped>
   .history {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     text-align: left;
     margin-top: 2rem;
     overflow: scroll;
     max-height: 300px;
+  }
+
+  .history::-webkit-scrollbar {
+    display: none;
   }
 
   .history .expense {

@@ -11,7 +11,7 @@
       <b-col cols="8" class="current-cash">
         <div id="tooltip-target-1" class="number">{{cashRemain}} SEK</div>       
         <b-tooltip target="tooltip-target-1" triggers="hover">
-          You have <b>4372,6</b> cash remain untill your next salary!
+          You have <b>{{cashRemain}}</b> cash remain untill your next salary!
         </b-tooltip>
         <div>Remain This Month</div>
         <div>My income <b>{{myIncome}}</b> SEK </div>        
@@ -57,6 +57,8 @@
           <b-list-group-item href="#" variant="secondary">-45kr, toilet paper, time: 16:30:00</b-list-group-item> 
           <b-list-group-item href="#" variant="light">-85kr, pizza lunch, time: 12:30:00</b-list-group-item> 
           <b-list-group-item href="#" variant="secondary">-25kr, morning coffee, time: 09:00:00</b-list-group-item> 
+          <b-list-group-item href="#" variant="light">-34kr, transport, time: 08:30:00</b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">-499kr, T-shirt, time: 15:00:00</b-list-group-item> 
         </b-list-group> 
       </b-col>
     </b-row>    
@@ -70,15 +72,15 @@
   import Countdown from '@/components/Countdown'; 
   export default {
     components: {
-        Header,
-        addHistory,
-        Countdown
-        },
+      Header,
+      addHistory,
+      Countdown
+      },
     data(){
       return {        
         receivedDatas: [],
         myIncome: '',
-        cashRemain: '4834'        
+        cashRemain: 12845        
       }
     },
     mounted(){
@@ -104,7 +106,7 @@
         this.receivedDatas.unshift(value)
       },
       redirectUser(){        
-          router.push({name: 'Home'})        
+        router.push({name: 'Home'})        
       },
       removeInputs(x) {
         this.receivedDatas.splice(x, 1)
@@ -113,25 +115,8 @@
       saveReceivedDatas() {
         const parsed = JSON.stringify(this.receivedDatas)
         localStorage.setItem('receivedDatas', parsed)
-      },
-      // cashRemain() {
-      //   this.myIncome - this.value.cost
-      // }      
-    },
-    //computed no working, need to fix it
-    computed: {
-      updateCashRemain: {
-       
-        get: function(){
-          return this.myIncome
-        },
-        set: function(value) {
-          const newValue = value.cost 
-          this.cashRemain = this.myIncome - newValue
-        }
-
-      }
-    }    
+      },         
+    },   
   }
 </script>
 
@@ -139,7 +124,7 @@
   .current-cash {
     background-color: #9eb9ff80;
     text-align: center;
-    padding-top: 75px;
+    padding-top: 75px;    
   }
   .days-left {
     background-color: #9eb9ff;
@@ -160,13 +145,14 @@
   }
   .number {
     font-size: 30px;
-    font-weight: 500;   
+    font-weight: 500;
+    margin-top: 60px;   
   }  
   .button {
       color: #9eb9ff;
   }
   #edit-btn {
     margin-left: 5px;
-    margin-top: 5px;
+    margin-top: 5px;    
   }
 </style>

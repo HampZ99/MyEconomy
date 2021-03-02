@@ -16,13 +16,21 @@
       <nav class="sidebar" :class="{ show: showSidebar }">
         <div class="user">
           <div class="actions">
+            <router-link
+              to="/"
+              style="float:left; color: white; text-decoration:none; padding-left : 10px"
+            >
+              <b-icon icon="box-arrow-in-left" font-scale="1.2"></b-icon>
+              logout</router-link
+            >
+
             <b-icon-bell font-scale="1.2" />
           </div>
           <div class="profile">
             <b-icon-person-fill font-scale="4.5" />
           </div>
           <div class="info">
-            <h3>{{ name }}</h3>
+            <h4>Hi {{ name }}</h4>
             <p>
               {{ email }}
             </p>
@@ -31,7 +39,9 @@
         <div class="items">
           <ul>
             <li>
-              <router-link to="/"> <b-icon-compass /> Dashboard</router-link>
+              <router-link to="/dashboard">
+                <b-icon-compass /> Dashboard</router-link
+              >
             </li>
             <li>
               <router-link to="/Budgets"> <b-icon-cash /> Budgets</router-link>
@@ -53,11 +63,11 @@
         </div>
       </nav>
       <div class="container main">
-        <router-view />
+        <router-view @onaccountcreated="f" />
       </div>
     </div>
     <div v-else>
-      <router-view />
+      <router-view @onaccountcreated="f" />
     </div>
   </div>
 </template>
@@ -96,9 +106,19 @@
         name: ''
       }
     },
+    methods: {
+      f() {
+        this.email = localStorage.getItem('email')
+        this.name = localStorage.getItem('name')
+      }
+    },
     mounted() {
-      this.email = localStorage.email
-      this.name = localStorage.name
+      if (localStorage.name) {
+        this.name = localStorage.name
+      }
+      if (localStorage.email) {
+        this.email = localStorage.email
+      }
     }
   }
 </script>

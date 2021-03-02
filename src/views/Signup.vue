@@ -14,9 +14,21 @@
           <strong>Sign Up</strong> To MyEconomy
         </p>
         <p style="font-size:15px">
-          Allready have an account yet ? <a href=""> Login Here!</a>
+          Allready have an account yet ?
+          <router-link tag="a" style="font-size:12px" to="/"
+            >Login Here!</router-link
+          >
         </p>
         <br />
+        <b-alert
+          :show="dismissCountDown"
+          dismissible
+          variant="danger"
+          @dismissed="dismissCountDown = 0"
+          @dismiss-count-down="countDownChanged"
+        >
+          Pleas Write the corecct values {{ dismissCountDown }} seconds...
+        </b-alert>
         <div class="input">
           <div class="form-group">
             <label class="control-label col-sm-2" for="Name">Name:</label>
@@ -56,7 +68,7 @@
                   :state="passwordvalidate"
                 ></b-form-input>
                 <b-input-group-prepend is-text>
-                  <b-icon icon="eye-fill"></b-icon>
+                  <b-icon @click="showPassword" :icon="icon"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
               <b-form-invalid-feedback
@@ -96,10 +108,18 @@
             </div>
           </div>
         </div>
-
+        <!-- <b-form-file id="file-small" size="sm"></b-form-file> -->
         <b-button class="logBtn" @click="onclick">Sign Up</b-button>
       </b-col>
     </b-row>
+    <b-modal ref="my-modal" hide-footer title="">
+      <div class="d-block text-center">
+        <h2>Registration successful !</h2>
+      </div>
+      <b-button class="mt-3" variant="outline-primary" block @click="intoLogin"
+        >Login</b-button
+      >
+    </b-modal>
   </div>
 </template>
 
@@ -110,8 +130,11 @@
         name: '',
         email: '',
         password: '',
-        hasSubmitted: false,
-        type: 'password'
+        hasSubmitted: true,
+        type: 'password',
+        dismissSecs: 5,
+        dismissCountDown: 0,
+        icon: 'eye'
       }
     },
 
@@ -157,11 +180,32 @@
       },
 
       onclick() {
-        this.hasSubmitted = true
+        if (this.validation && this.passwordvalidate && this.namevalidate) {
+          this.$refs['my-modal'].show()
+        } else {
+          this.dismissCountDown = this.dismissSecs
+        }
+      },
+      intoLogin() {
+        this.$emit('onaccountcreated')
+        // this.$router.app.$emit('onaccountcreated')
 
-        // this.$router.push('/Login')
-
-        // this.emailColor = 'green'
+        /*     localStorage.setItem('email', '')
+        localStorage.setItem('password', '')
+        localStorage.setItem('name', '') */
+        this.$router.push('/')
+      },
+      countDownChanged(dismissCountDown) {
+        this.dismissCountDown = dismissCountDown
+      },
+      showPassword() {
+        if (this.type === 'password') {
+          this.type = 'text'
+          this.icon = 'eye-fill'
+        } else {
+          this.type = 'password'
+          this.icon = 'eye'
+        }
       }
     },
     computed: {

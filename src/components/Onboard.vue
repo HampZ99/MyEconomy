@@ -4,7 +4,7 @@
       onboard && this.$route.name !== 'Login' && this.$route.name !== 'Signup'
     "
   >
-    <div class="onboard-overlay"></div>
+    <div class="onboard-overlay" @click="close"></div>
     <div class="onboard" v-for="onboard in onboardItem" :key="onboard.step">
       <template v-if="onboard.step === currentStep">
         <div class="image">
