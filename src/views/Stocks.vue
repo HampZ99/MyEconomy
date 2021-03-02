@@ -69,7 +69,7 @@
               <span
                 ><b-icon
                   variant="success"
-                  icon="arrow-up"
+                  icon='arrow-up' 
                   aria-hidden="true"
                 ></b-icon></span
               >{{ data.item.stocks_trend_24h }}
@@ -116,7 +116,6 @@
     },
     data() {
       return {
-        arrow: false,
         sortBy: 'name',
         sortDesc: false,
         fields: [
@@ -302,7 +301,6 @@
         ]
       }
     },
-
     computed: {
       rows() {
         return this.items.length
@@ -323,7 +321,7 @@
     }
   }
 </script>
-
+        
 <style scoped>
   .Stocks {
     height: 100vh;
@@ -351,3 +349,7 @@
     }
   }
 </style>
+
+     
+
+
