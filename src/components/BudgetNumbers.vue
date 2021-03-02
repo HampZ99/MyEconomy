@@ -46,7 +46,24 @@
     </div>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      budget1: '',
+      budget2: '',
+      budget3: '',
+      budget4: ''
+    }
+  },
+  mounted(){
+    this.budget1 = localStorage.getItem('budget1')
+    this.budget2 = localStorage.getItem('budget2')
+    this.budget3 = localStorage.getItem('budget3')
+    this.budget4 = localStorage.getItem('budget4')
+  }
+}
+</script>
 <style scoped>
   #budgetCards {
     width: calc(50% - 1em);

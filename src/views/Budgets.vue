@@ -3,18 +3,19 @@
     <Header title="Budgets" desc="Welcome Back" :date="true" />
     <BudgetNumbers />
     <div>
-      <form class="txtBox">
+      <form id="budgetForm" class="txtBox" @submit="subForm">
         <input
           style="margin-left: 0em;"
           id="txtInput"
           type="text"
           placeholder="Travels Amount..."
+          v-model="budget1"
         />
-        <input id="txtInput" type="text" placeholder="Foods Amount..." />
-        <input id="txtInput" type="text" placeholder="Clothes Amount..." />
-        <input id="txtInput" type="text" placeholder="Savings Amount..." />
+        <input id="txtInput" type="text" placeholder="Foods Amount..." v-model="budget2" />
+        <input id="txtInput" type="text" placeholder="Clothes Amount..." v-model="budget3"/>
+        <input id="txtInput" type="text" placeholder="Savings Amount..." v-model="budget4"/>
         <br />
-        <input id="btn" type="button" value="Edit budgets" />
+        <input id="btn" type="submit" value="Edit budgets" />
       </form>
     </div>
   </div>
@@ -28,6 +29,52 @@
     components: {
       Header,
       BudgetNumbers
+    },
+    data() {
+      return {
+        budget1: '',
+        budget2: '',
+        budget3: '',
+        budget4: ''
+      }
+    },
+    methods: {
+      subForm(){
+        localStorage.setItem(this.budget1 , 'budget1')
+        localStorage.setItem(this.budget2 , 'budget2')
+        localStorage.setItem(this.budget3 , 'budget3')
+        localStorage.setItem(this.budget4 , 'budget4')
+
+        document.getElementById("budgetForm").reset();
+      }
+    },
+    mounted(){
+      if(localStorage.budget1){
+        this.budget1 = localStorage.budget1
+      }
+      if(localStorage.budget2){
+        this.budget2 = localStorage.budget2
+      }
+      if(localStorage.budget3){
+        this.budget3 = localStorage.budget3
+      }
+      if(localStorage.budget4){
+        this.budget4 = localStorage.budget4
+      }
+    },
+    watch: {
+      budget1(newBudget1){
+        localStorage.budget1 = newBudget1
+      },
+      budget2(newBudget2){
+        localStorage.budget2 = newBudget2
+      },
+      budget3(newBudget3){
+        localStorage.budget3 = newBudget3
+      },
+      budget4(newBudget4){
+        localStorage.budget4 = newBudget4
+      }
     }
   }
 </script>
