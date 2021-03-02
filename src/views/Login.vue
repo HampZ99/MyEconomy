@@ -15,6 +15,16 @@
           Sign Up Here!</router-link
         >
         <br /><br />
+        <b-alert
+          :show="dismissCountDown"
+          dismissible
+          variant="danger"
+          @dismissed="dismissCountDown = 0"
+          @dismiss-count-down="countDownChanged"
+        >
+          Pleas Write the corecct values {{ dismissCountDown }} seconds...
+        </b-alert>
+
         <div class="input">
           <div class="form-group">
             <label class="control-label col-sm-2" for="email">Email:</label>
@@ -37,12 +47,6 @@
               <b-form-valid-feedback :state="validation" v-if="hasSubmitted">
                 Looks Good.
               </b-form-valid-feedback>
-              <!-- <span
-                v-if="msg.email && hasSubmitted"
-                :style="{ color: emailColor }"
-                :state="validation"
-                >{{ msg.email }}</span
-              > -->
             </div>
           </div>
           <div class="form-group">
@@ -57,7 +61,7 @@
                   required
                 ></b-form-input>
                 <b-input-group-prepend is-text>
-                  <b-icon @click="showPassword" icon="eye"></b-icon>
+                  <b-icon @click="showPassword" :icon="icon"></b-icon>
                 </b-input-group-prepend>
               </b-input-group>
               <b-form-invalid-feedback
@@ -72,27 +76,28 @@
               >
                 Looks Good.
               </b-form-valid-feedback>
-              <!-- <b-form-valid-feedback :state="validation" v-if="hasSubmitted">
-                Looks Good.
-              </b-form-valid-feedback> -->
-
-              <!-- <span v-if="msg.password && hasSubmitted"
-                >{{ msg.password }}
-              </span> -->
               <div>
                 <p style="text-align:right;  margin-top: 0em; font-size:12px">
-                  <a href="">Forgot Password</a>
+                  <a href="javascript:" @click="link">
+                    Forgot Password?
+                  </a>
                 </p>
               </div>
             </div>
           </div>
         </div>
 
-        <router-link to="/">
-          <b-button class="logBtn" @click="onclick">Login</b-button>
-        </router-link>
+        <b-button class="logBtn" @click="onclick">Login</b-button>
       </b-col>
     </b-row>
+    <b-modal id="modal-prevent-closing" ref="modal" title="Submit Your Email">
+      <b-form-input
+        id="input-1"
+        type="email"
+        placeholder="Enter email"
+        required
+      ></b-form-input>
+    </b-modal>
   </div>
 </template>
 
@@ -105,15 +110,16 @@
         email: '',
         password: '',
         msg: [],
-        hasSubmitted: false,
+        hasSubmitted: true,
         emailColor: 'red',
-        type: 'password'
-        // validated: false
-
-        // valid: []
+        type: 'password',
+        icon: 'eye',
+        dismissSecs: 5,
+        dismissCountDown: 0,
+        value: ''
       }
     },
-    mounted() {
+    /*     mounted() {
       if (localStorage.email) {
         this.email = localStorage.email
       }
@@ -123,14 +129,6 @@
     },
 
     watch: {
-      //   email(value) {
-      //     this.email = value
-      //     this.validateEmail(value)
-      //   },
-      // password(value) {
-      //    this.password = value
-      //   this.validatePassword(value)
-      //  }
       email(newEmail) {
         localStorage.email = newEmail
       },
@@ -138,7 +136,7 @@
         localStorage.password = newPassword
       }
     },
-
+ */
     methods: {
       validateEmail() {
         let req = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/
@@ -153,37 +151,40 @@
       showPassword() {
         if (this.type === 'password') {
           this.type = 'text'
+          this.icon = 'eye-fill'
         } else {
           this.type = 'password'
+          this.icon = 'eye'
         }
       },
-
-      // validateEmail(value) {
-      //   if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/.test(value)) {
-      //     this.msg['email'] = 'Valid Email Address'
-      //   } else {
-      //     this.msg['email'] = 'Invalid Email Address'
-      //   }
-      // },
-      //  validatePassword(value) {
-      //    let difference = 8 - value.length
-      //    if (value.length < 8) {
-      //     this.msg['password'] =
-      //        'Must be 8 characters!' + difference + 'characters left'
-      //     } else {
-      //      this.msg.['password'] = 'Password Valid';
-      //    }
-      //  },
+      countDownChanged(dismissCountDown) {
+        this.dismissCountDown = dismissCountDown
+      },
 
       onclick() {
-        this.hasSubmitted = true
-        // this.emailColor = 'green'
+        if (this.validation && this.passwordvalidate && localStorage.email) {
+          if (
+            localStorage.getItem('email') === this.email &&
+            localStorage.getItem('password') === this.password
+          ) {
+            this.$router.push('/')
+          }
+        }
+        this.dismissCountDown = this.dismissSecs
+      },
+
+      link() {
+        this.$refs['modal'].show()
       }
+
+      // Storage() {
+      //   this.localStorage.get('email')
+      // }
     },
     computed: {
       validation() {
         if (this.email) {
-          return this.validateEmail() ? true : false
+          return this.validateEmail(this.email) ? true : false
         }
         return null
       },
