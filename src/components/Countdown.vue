@@ -105,6 +105,7 @@ export default {
 <style scoped>
  .row-wrapper {
    justify-content: center;
+   margin-bottom: 80px;
  }
  .days {
    margin-right: 15px;
@@ -134,6 +135,7 @@ export default {
     margin-top: -80px; 
   }
   .title {
+    margin-top: 80px;
     margin-bottom: 80px;
   }  
 

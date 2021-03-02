@@ -11,7 +11,7 @@
       <b-col cols="8" class="current-cash">
         <div id="tooltip-target-1" class="number">{{cashRemain}} SEK</div>       
         <b-tooltip target="tooltip-target-1" triggers="hover">
-          You have <b>4372,6</b> cash remain untill your next salary!
+          You have <b>{{cashRemain}}</b> cash remain untill your next salary!
         </b-tooltip>
         <div>Remain This Month</div>
         <div>My income <b>{{myIncome}}</b> SEK </div>        
@@ -57,6 +57,7 @@
           <b-list-group-item href="#" variant="secondary">-45kr, toilet paper, time: 16:30:00</b-list-group-item> 
           <b-list-group-item href="#" variant="light">-85kr, pizza lunch, time: 12:30:00</b-list-group-item> 
           <b-list-group-item href="#" variant="secondary">-25kr, morning coffee, time: 09:00:00</b-list-group-item> 
+          <b-list-group-item href="#" variant="light">-34kr, transport, time: 08:30:00</b-list-group-item> 
         </b-list-group> 
       </b-col>
     </b-row>    
@@ -78,7 +79,7 @@
       return {        
         receivedDatas: [],
         myIncome: '',
-        cashRemain: '4834'        
+        cashRemain: 4845        
       }
     },
     mounted(){
@@ -118,20 +119,20 @@
       //   this.myIncome - this.value.cost
       // }      
     },
-    //computed no working, need to fix it
-    computed: {
-      updateCashRemain: {
+    //computed no working, need to fix it    
+    // computed: {
+    //   updateCashRemain: {
        
-        get: function(){
-          return this.myIncome
-        },
-        set: function(value) {
-          const newValue = value.cost 
-          this.cashRemain = this.myIncome - newValue
-        }
+    //     get: function(){
+    //       return this.cashRemain
+    //     },
+    //     set: function(value) {
+          
+    //       this.cashRemain = this.cashRemain - value.newCost
+    //     }
 
-      }
-    }    
+    //   }
+    // }    
   }
 </script>
 
@@ -140,6 +141,7 @@
     background-color: #9eb9ff80;
     text-align: center;
     padding-top: 75px;
+    
   }
   .days-left {
     background-color: #9eb9ff;
@@ -160,7 +162,8 @@
   }
   .number {
     font-size: 30px;
-    font-weight: 500;   
+    font-weight: 500;
+    margin-top: 60px;   
   }  
   .button {
       color: #9eb9ff;
@@ -168,5 +171,6 @@
   #edit-btn {
     margin-left: 5px;
     margin-top: 5px;
+    
   }
 </style>

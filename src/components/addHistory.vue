@@ -35,14 +35,17 @@ export default {
     watch: {
         cost(newCost) {
             localStorage.cost = newCost
+            //watch cost for calculation        
+            //this.$emit('new-cost', newCost)
         },
         description(newDescription) {
             localStorage.description = newDescription
         },
         value(newValue) {
             localStorage.value = newValue
-        }
+        },      
     },
+        
     methods: {
         onSubmit(){
             //console.log('abc')
