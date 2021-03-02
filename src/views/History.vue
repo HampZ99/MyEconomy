@@ -57,7 +57,8 @@
           <b-list-group-item href="#" variant="secondary">-45kr, toilet paper, time: 16:30:00</b-list-group-item> 
           <b-list-group-item href="#" variant="light">-85kr, pizza lunch, time: 12:30:00</b-list-group-item> 
           <b-list-group-item href="#" variant="secondary">-25kr, morning coffee, time: 09:00:00</b-list-group-item> 
-          <b-list-group-item href="#" variant="light">-34kr, transport, time: 08:30:00</b-list-group-item> 
+          <b-list-group-item href="#" variant="light">-34kr, transport, time: 08:30:00</b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">-499kr, T-shirt, time: 15:00:00</b-list-group-item> 
         </b-list-group> 
       </b-col>
     </b-row>    
@@ -71,15 +72,15 @@
   import Countdown from '@/components/Countdown'; 
   export default {
     components: {
-        Header,
-        addHistory,
-        Countdown
-        },
+      Header,
+      addHistory,
+      Countdown
+      },
     data(){
       return {        
         receivedDatas: [],
         myIncome: '',
-        cashRemain: 4845        
+        cashRemain: 12845        
       }
     },
     mounted(){
@@ -105,7 +106,7 @@
         this.receivedDatas.unshift(value)
       },
       redirectUser(){        
-          router.push({name: 'Home'})        
+        router.push({name: 'Home'})        
       },
       removeInputs(x) {
         this.receivedDatas.splice(x, 1)
@@ -114,25 +115,8 @@
       saveReceivedDatas() {
         const parsed = JSON.stringify(this.receivedDatas)
         localStorage.setItem('receivedDatas', parsed)
-      },
-      // cashRemain() {
-      //   this.myIncome - this.value.cost
-      // }      
-    },
-    //computed no working, need to fix it    
-    // computed: {
-    //   updateCashRemain: {
-       
-    //     get: function(){
-    //       return this.cashRemain
-    //     },
-    //     set: function(value) {
-          
-    //       this.cashRemain = this.cashRemain - value.newCost
-    //     }
-
-    //   }
-    // }    
+      },         
+    },   
   }
 </script>
 
@@ -140,8 +124,7 @@
   .current-cash {
     background-color: #9eb9ff80;
     text-align: center;
-    padding-top: 75px;
-    
+    padding-top: 75px;    
   }
   .days-left {
     background-color: #9eb9ff;
@@ -170,7 +153,6 @@
   }
   #edit-btn {
     margin-left: 5px;
-    margin-top: 5px;
-    
+    margin-top: 5px;    
   }
 </style>
