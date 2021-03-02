@@ -15,7 +15,7 @@
         </p>
         <p style="font-size:15px">
           Allready have an account yet ?
-          <router-link tag="a" style="font-size:12px" to="/login"
+          <router-link tag="a" style="font-size:12px" to="/"
             >Login Here!</router-link
           >
         </p>
@@ -193,7 +193,7 @@
         /*     localStorage.setItem('email', '')
         localStorage.setItem('password', '')
         localStorage.setItem('name', '') */
-        this.$router.push('/Login')
+        this.$router.push('/')
       },
       countDownChanged(dismissCountDown) {
         this.dismissCountDown = dismissCountDown

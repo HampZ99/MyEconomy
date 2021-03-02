@@ -17,7 +17,7 @@
         <div class="user">
           <div class="actions">
             <router-link
-              to="/Login"
+              to="/"
               style="float:left; color: white; text-decoration:none; padding-left : 10px"
             >
               <b-icon icon="box-arrow-in-left" font-scale="1.2"></b-icon>

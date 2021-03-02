@@ -167,7 +167,7 @@
             localStorage.getItem('email') === this.email &&
             localStorage.getItem('password') === this.password
           ) {
-            this.$router.push('/')
+            this.$router.push('/dashboard')
           }
         }
         this.dismissCountDown = this.dismissSecs
