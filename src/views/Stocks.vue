@@ -244,6 +244,48 @@
             }
           },
           {
+            name: 'Lundin Petroleum',
+            stocks_owned: 45,
+            stocks_price: 94,
+            stocks_trend_1year: 4586,
+            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            _cellVariants: {
+              name: 'dark',
+              stocks_owned: 'secondary',
+              stocks_price: 'primary',
+              stocks_trend_1year: 'secondary',
+              stocks_trend_24h: 'primary'
+            }
+          },
+          {
+            name: 'Elektra B',
+            stocks_owned: 45,
+            stocks_price: 94,
+            stocks_trend_1year: 4586,
+            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            _cellVariants: {
+              name: 'dark',
+              stocks_owned: 'secondary',
+              stocks_price: 'primary',
+              stocks_trend_1year: 'secondary',
+              stocks_trend_24h: 'primary'
+            }
+          },
+          {
+            name: 'SKF B',
+            stocks_owned: 45,
+            stocks_price: 94,
+            stocks_trend_1year: 4586,
+            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            _cellVariants: {
+              name: 'dark',
+              stocks_owned: 'secondary',
+              stocks_price: 'primary',
+              stocks_trend_1year: 'secondary',
+              stocks_trend_24h: 'primary'
+            }
+          },
+          {
             name: 'DNB',
             stocks_owned: 48,
             stocks_price: 456,
