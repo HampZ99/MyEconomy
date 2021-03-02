@@ -1,5 +1,5 @@
 <template>
-  <b-modal id="modal-center" title="Add Expense" size="lg" centered hide-footer>
+  <b-modal id="addExpense" title="Add Expense" size="lg" centered hide-footer>
     <b-alert
       @dismiss-count-down="countDownChanged"
       :show="dismissCountDown"
@@ -97,6 +97,11 @@
         this.id = this.$uuid.v4()
         this.$store.commit('addExpense', this.form)
 
+        this.form.id = null
+        this.form.name = null
+        this.form.amount = null
+        this.form.type = null
+        this.form.date = null
         this.dismissCountDown = 5
       },
       countDownChanged(dismissCountDown) {

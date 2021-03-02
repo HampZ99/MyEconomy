@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Onboard />
     <div
       class="overlay"
       @click="showSidebar = !showSidebar"
@@ -71,6 +72,8 @@
 
 <script>
   import AddButton from '@/components/expenses/AddExpense'
+  import Onboard from '@/components/Onboard'
+
   import {
     BIconCompass,
     BIconClockHistory,
@@ -85,6 +88,7 @@
     name: 'App',
     components: {
       AddButton,
+      Onboard,
       BIconCompass,
       BIconClockHistory,
       BIconBarChartLine,
@@ -175,7 +179,7 @@
     position: fixed;
     height: 100%;
     width: 260px;
-    z-index: 100;
+    z-index: 10;
     left: 0;
     top: 0;
   }
