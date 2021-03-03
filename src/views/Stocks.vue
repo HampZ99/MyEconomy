@@ -58,10 +58,23 @@
               <span
                 ><b-icon
                   variant="black"
-                  icon="cash"
+                  icon="arrow-clockwise"
+                  animation="spin"
                   aria-hidden="true"
                 ></b-icon></span
               >{{ data.item.stocks_trend_24h }}
+            </p>
+          </template>
+          <template v-slot:cell(stocks_trend_1year)="data">
+            <p>
+              <span
+                ><b-icon
+                  variant="black"
+                  icon="percent"
+                  
+                  aria-hidden="true"
+                ></b-icon></span
+              >{{ data.item.stocks_trend_1year }}
             </p>
           </template>
           <div>
@@ -139,7 +152,7 @@
             name: 'SEB',
             stocks_owned: 15,
             stocks_price: 123,
-            stocks_trend_1year: +10,
+            stocks_trend_1year: +10.23,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -153,7 +166,7 @@
             name: 'H&M AB',
             stocks_owned: 80,
             stocks_price: 306,
-            stocks_trend_1year: 2590,
+            stocks_trend_1year: 12.18,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -167,7 +180,7 @@
             name: 'Telia',
             stocks_owned: 106,
             stocks_price: 103,
-            stocks_trend_1year: -2210,
+            stocks_trend_1year: -22.02,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -181,7 +194,7 @@
             name: 'Volvo',
             stocks_owned: 12,
             stocks_price: 125,
-            stocks_trend_1year: 1256,
+            stocks_trend_1year: 12.16,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -195,7 +208,7 @@
             name: 'NEL',
             stocks_owned: 86,
             stocks_price: 230,
-            stocks_trend_1year: 459,
+            stocks_trend_1year: 4.23,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -209,7 +222,7 @@
             name: 'SAS',
             stocks_owned: 29,
             stocks_price: 415,
-            stocks_trend_1year: -45,
+            stocks_trend_1year: -0.45,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -223,7 +236,7 @@
             name: 'Mowi',
             stocks_owned: 156,
             stocks_price: 156,
-            stocks_trend_1year: 1562,
+            stocks_trend_1year: 1.52,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -237,7 +250,7 @@
             name: 'ICA',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4586,
+            stocks_trend_1year: 4.53,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -251,7 +264,7 @@
             name: 'Lundin Petroleum',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4586,
+            stocks_trend_1year: 4.18,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -265,7 +278,7 @@
             name: 'Elektra B',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4586,
+            stocks_trend_1year: 4.12,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -279,7 +292,7 @@
             name: 'SKF B',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4586,
+            stocks_trend_1year: 8.11,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
@@ -293,7 +306,7 @@
             name: 'DNB',
             stocks_owned: 48,
             stocks_price: 456,
-            stocks_trend_1year: -4569,
+            stocks_trend_1year: -9.15,
             stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
