@@ -14,6 +14,17 @@
       >
     </b-container>
     <div class="table">
+      <div class="search">
+      <b-row>
+        <b-col md="10">
+          <b-form-input
+            v-model="filter"
+            type="search"
+            placeholder="Search"
+          ></b-form-input>
+        </b-col>
+      </b-row>
+    </div>
       <b-form-fieldset
         horizontal
         label="Rows per page"
@@ -107,20 +118,11 @@
             aria-hidden="true"
           ></b-icon
         ></span>
-        <span><input type="column" :value="total"/></span>SEK
+        <span><input type="column"  :value="total"/></span>SEK
       </h3>
     </div>
-    <div class="search">
-      <b-row>
-        <b-col md="10">
-          <b-form-input
-            v-model="filter"
-            type="search"
-            placeholder="Search"
-          ></b-form-input>
-        </b-col>
-      </b-row>
-    </div>
+    
+    
   </div>
 </template>
 
@@ -351,7 +353,7 @@
     margin-top: 30px;
   }
   .search {
-    float: left;
+    float: right;
     margin-top: 30px;
   }
   span input {
