@@ -75,7 +75,7 @@
                 :state="passwordvalidate"
                 v-if="hasSubmitted"
               >
-                Your password must be 5-12 characters long.
+                Your password must be 7-12 characters long.
               </b-form-invalid-feedback>
               <b-form-valid-feedback
                 :state="passwordvalidate"

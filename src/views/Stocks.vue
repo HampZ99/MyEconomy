@@ -1,7 +1,7 @@
 <template>
   <div class="Stocks">
     <div class="header">
-      <Header title="Stocks" desc="Welcome Back" :date="true" />
+      <Header title="Stocks" :desc="desc" :date="true" />
     </div>
     <h1>Your stocks</h1>
     <div class="h2 mb-0"></div>
@@ -54,7 +54,7 @@
             ></b-button>
           </template>
           <template v-slot:cell(stocks_trend_24h)="data">
-            <p>  
+            <p>
               <span
                 ><b-icon
                   variant="black"
@@ -79,6 +79,7 @@
     </div>
     <div class="total">
       <h3>
+<<<<<<< HEAD
         Total 24h
         <span class="emoji" v-if="total > 0"><b-icon 
           variant="success"
@@ -88,6 +89,24 @@
           variant="danger"
            icon="emoji-angry-fill"
           aria-hidden="true"></b-icon></span><span><input type="column" :value="total"/></span>SEK
+=======
+        Total winst or loss 24h
+        <span class="emoji" v-if="total > 0"
+          ><b-icon
+            variant="success"
+            icon="emoji-smile-fill"
+            aria-hidden="true"
+          ></b-icon
+        ></span>
+        <span class="emoji" v-else
+          ><b-icon
+            variant="danger"
+            icon="emoji-angry-fill"
+            aria-hidden="true"
+          ></b-icon
+        ></span>
+        <span><input type="column" :value="total"/></span>SEK
+>>>>>>> 840b72305d9ccface77ced4a0e774d3b421c6bca
       </h3>
     </div>
     <div class="search">
@@ -112,6 +131,8 @@
     },
     data() {
       return {
+        desc: ' Welcome Back ' + (this.name = localStorage.getItem('name')),
+        arrow: false,
         sortBy: 'name',
         sortDesc: false,
         fields: [
@@ -317,7 +338,7 @@
     }
   }
 </script>
-        
+
 <style scoped>
   .Stocks {
     height: 100vh;
@@ -339,7 +360,7 @@
   .table {
     width: 100%;
   }
-  p span{
+  p span {
     margin-right: 15px;
   }
   .emoji {
@@ -351,7 +372,3 @@
     }
   }
 </style>
-
-     
-
-
