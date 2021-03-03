@@ -119,7 +119,7 @@
             aria-hidden="true"
           ></b-icon
         ></span>
-        <span><input type="column"  :value="total"/></span>SEK
+        <span><input type="column" size="10" :value="total"> / </span>SEK
       </h3>
     </div>
     
