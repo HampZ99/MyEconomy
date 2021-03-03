@@ -11,7 +11,7 @@
       <b-col cols="8" class="current-cash">
         <div id="tooltip-target-1" class="number">{{ cashRemain }} SEK</div>
         <b-tooltip target="tooltip-target-1" triggers="hover">
-          You have <b>4372,6</b> cash remain untill your next salary!
+          You have <b>{{ cashRemain }}</b> cash remain untill your next salary!
         </b-tooltip>
         <div>Remain This Month</div>
         <div>
@@ -81,6 +81,12 @@
           >
           <b-list-group-item href="#" variant="secondary"
             >-25kr, morning coffee, time: 09:00:00</b-list-group-item
+          >
+          <b-list-group-item href="#" variant="light"
+            >-34kr, transport, time: 08:30:00</b-list-group-item
+          >
+          <b-list-group-item href="#" variant="secondary"
+            >-499kr, T-shirt, time: 15:00:00</b-list-group-item
           >
         </b-list-group>
       </b-col>
