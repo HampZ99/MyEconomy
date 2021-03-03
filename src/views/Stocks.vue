@@ -7,7 +7,7 @@
     <div class="h2 mb-0"></div>
     <b-container>
       <b-alert v-if="total < 0" show variant="warning" dismissible fade
-        >Some stocks are loosing money</b-alert
+        >You are loosing money</b-alert
       >
       <b-alert v-else show variant="success" dismissible fade
         >You are winning money</b-alert
@@ -15,7 +15,7 @@
     </b-container>
     <div class="table">
       <div class="search">
-      <b-input-group size="sm" class="mb-2">
+      <b-input-group size="md" class="mb-2">
       <b-input-group-prepend is-text>
         <b-icon icon="search"></b-icon>
       </b-input-group-prepend>
