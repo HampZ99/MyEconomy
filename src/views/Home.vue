@@ -1,6 +1,6 @@
 <template>
   <div class="Home">
-    <Header title="Dashboard" desc="Welcome Back" :date="true" />
+    <Header title="Dashboard" :desc="desc" :date="true" />
     <div id="content">
       <div id="cardWrapLeft">
         <BudgetNumbers />
@@ -50,6 +50,11 @@
       BudgetNumbers,
       ProgressBar,
       ExpenseHistory
+    },
+    data() {
+      return {
+        desc: ' Welcome Back ' + (this.name = localStorage.getItem('name'))
+      }
     }
   }
 </script>

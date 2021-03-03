@@ -1,7 +1,7 @@
 <template>
   <div class="Stocks">
     <div class="header">
-      <Header title="Stocks" desc="Welcome Back" :date="true" />
+      <Header title="Stocks" :desc="desc" :date="true" />
     </div>
     <h1>Your stocks</h1>
     <div class="h2 mb-0"></div>
@@ -116,6 +116,7 @@
     },
     data() {
       return {
+        desc: ' Welcome Back ' + (this.name = localStorage.getItem('name')),
         arrow: false,
         sortBy: 'name',
         sortDesc: false,

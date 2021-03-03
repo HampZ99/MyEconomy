@@ -24,7 +24,7 @@
               logout</router-link
             >
 
-            <b-icon-bell font-scale="1.2" />
+            <b-icon-bell @click="notification" font-scale="1.2" />
           </div>
           <div class="profile">
             <b-icon-person-fill font-scale="4.5" />
@@ -75,6 +75,7 @@
 <script>
   import AddButton from '@/components/expenses/AddExpense'
   import Onboard from '@/components/Onboard'
+  import 'vuejs-noty/dist/vuejs-noty.css'
 
   import {
     BIconCompass,
@@ -110,6 +111,14 @@
       f() {
         this.email = localStorage.getItem('email')
         this.name = localStorage.getItem('name')
+      },
+      notification() {
+        this.$noty.info('Hey! Something very important here...', {
+          killer: false,
+          timeout: 6000,
+          theme: 'metroui',
+          layout: 'topRight'
+        })
       }
     },
     mounted() {
