@@ -15,23 +15,24 @@
     </b-container>
     <div class="table">
       <div class="search">
-      <b-row>
-        <b-col md="10">
-          <b-form-input
-            v-model="filter"
-            type="search"
-            placeholder="Search"
-          ></b-form-input>
-        </b-col>
-      </b-row>
+      <b-input-group size="sm" class="mb-2">
+      <b-input-group-prepend is-text>
+        <b-icon icon="search"></b-icon>
+      </b-input-group-prepend>
+      <b-form-input 
+      type="search" 
+      placeholder="Search"
+      v-model="filter"
+      ></b-form-input>
+    </b-input-group>
     </div>
       <b-form-fieldset
         horizontal
         label="Rows per page"
         class="col-2"
-        label-size="5"
+        label-size="8"
       >
-        <b-form-select
+        <b-form-select 
           :options="[
             { text: 5, value: 5 },
             { text: 10, value: 10 }
@@ -350,11 +351,12 @@
   .total {
     float: right;
     margin-right: 10px;
-    margin-top: 30px;
+    margin-top: 50px;
   }
   .search {
     float: right;
     margin-top: 30px;
+    
   }
   span input {
     text-align: center;
@@ -373,5 +375,9 @@
     h3 {
       align-content: center;
     }
+    .search {
+      margin-top: 78px;
+    }
+    
   }
 </style>
