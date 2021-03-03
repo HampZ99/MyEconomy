@@ -79,7 +79,7 @@
     </div>
     <div class="total">
       <h3>
-        Total winst or loss 24h
+        Total 24h
         <span class="emoji" v-if="total > 0"><b-icon 
           variant="success"
            icon="emoji-smile-fill"
@@ -87,8 +87,7 @@
           <span class="emoji" v-else><b-icon 
           variant="danger"
            icon="emoji-angry-fill"
-          aria-hidden="true"></b-icon></span>
-        <span><input type="column" :value="total"/></span>SEK
+          aria-hidden="true"></b-icon></span><span><input type="column" :value="total"/></span>SEK
       </h3>
     </div>
     <div class="search">
