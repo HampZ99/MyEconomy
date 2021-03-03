@@ -53,23 +53,12 @@
               <b-icon icon="basket" aria-hidden="true"></b-icon
             ></b-button>
           </template>
-          <template v-if="total < 0" v-slot:cell(stocks_trend_24h)="data">
-            <p>
+          <template v-slot:cell(stocks_trend_24h)="data">
+            <p>  
               <span
                 ><b-icon
-                  variant="danger"
-                  icon="arrow-down"
-                  aria-hidden="true"
-                ></b-icon></span
-              >{{ data.item.stocks_trend_24h }}
-            </p>
-          </template>
-          <template v-else v-slot:cell(stocks_trend_24h)="data">
-            <p>
-              <span
-                ><b-icon
-                  variant="success"
-                  icon='arrow-up' 
+                  variant="black"
+                  icon="cash"
                   aria-hidden="true"
                 ></b-icon></span
               >{{ data.item.stocks_trend_24h }}
@@ -91,6 +80,14 @@
     <div class="total">
       <h3>
         Total winst or loss 24h
+        <span class="emoji" v-if="total > 0"><b-icon 
+          variant="success"
+           icon="emoji-smile-fill"
+          aria-hidden="true"></b-icon></span>
+          <span class="emoji" v-else><b-icon 
+          variant="danger"
+           icon="emoji-angry-fill"
+          aria-hidden="true"></b-icon></span>
         <span><input type="column" :value="total"/></span>SEK
       </h3>
     </div>
@@ -342,6 +339,12 @@
   }
   .table {
     width: 100%;
+  }
+  p span{
+    margin-right: 15px;
+  }
+  .emoji {
+    margin-right: 15px;
   }
   @media (max-width: 375px) {
     h3 {
