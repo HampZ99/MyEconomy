@@ -79,18 +79,7 @@
     </div>
     <div class="total">
       <h3>
-<<<<<<< HEAD
         Total 24h
-        <span class="emoji" v-if="total > 0"><b-icon 
-          variant="success"
-           icon="emoji-smile-fill"
-          aria-hidden="true"></b-icon></span>
-          <span class="emoji" v-else><b-icon 
-          variant="danger"
-           icon="emoji-angry-fill"
-          aria-hidden="true"></b-icon></span><span><input type="column" :value="total"/></span>SEK
-=======
-        Total winst or loss 24h
         <span class="emoji" v-if="total > 0"
           ><b-icon
             variant="success"
@@ -106,7 +95,6 @@
           ></b-icon
         ></span>
         <span><input type="column" :value="total"/></span>SEK
->>>>>>> 840b72305d9ccface77ced4a0e774d3b421c6bca
       </h3>
     </div>
     <div class="search">
