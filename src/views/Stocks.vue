@@ -105,6 +105,8 @@
     <div class="total">
       <h3>
         Total 24h 
+        </h3>
+        <p>
         <span class="emoji" v-if="total > 0"
           ><b-icon
             variant="success"
@@ -120,7 +122,7 @@
           ></b-icon
         ></span>
         <span><input type="column" size="10" :value="total"> / </span>SEK
-      </h3>
+      </p>
     </div>
     
     
@@ -373,7 +375,12 @@
   }
   h3 {
     text-decoration-line: underline;
+    display: inline;
     
+  }
+  .total p {
+    font-size: 25px;
+    display: inline;
   }
   @media (max-width: 375px) {
     h3 {
