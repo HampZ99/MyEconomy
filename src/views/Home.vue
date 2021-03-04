@@ -20,12 +20,7 @@
           </h2>
           <hr />
         </div>
-        <img
-          src="../assets/DashboardIcons/coin.gif"
-          alt="Coin"
-          width="380"
-          style="margin-top: -5rem;"
-        />
+        <img src="../assets/DashboardIcons/coin.gif" alt="Coin" id="imgCoin" />
         <div style="margin-top:-4rem;z-index:1;position: relative;">
           <h4 style="margin-bottom: 1em; text-align:center;">19 days left</h4>
           <ProgressBar id="progress" />
@@ -85,10 +80,10 @@
   }
   #cardWrapRight {
     /* background: url('../assets/DashboardIcons/coin.gif'); */
-    background-size: cover;
-    background-position: center;
-    background-position-y: bottom;
-    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-position-y: bottom; */
+    /* background-repeat: no-repeat; */
     width: calc(50% - 2em);
     height: 100%;
     float: left;
@@ -118,6 +113,11 @@
     width: 100%;
     text-align: center;
     opacity: 60%;
+  }
+  #imgCoin {
+    margin-top: -5em;
+    width: 80%;
+    height: auto;
   }
   @media (max-width: 576px) {
     .Home {
@@ -156,6 +156,11 @@
       width: 100%;
       text-align: center;
       opacity: 60%;
+    }
+    #imgCoin {
+      width: 100%;
+      margin-top: -4em;
+      margin-bottom: 1em;
     }
   }
 </style>

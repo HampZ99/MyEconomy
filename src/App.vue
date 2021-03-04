@@ -24,7 +24,7 @@
               logout</router-link
             >
 
-            <b-icon-bell @click="notification" font-scale="1.2" />
+            <b-icon-bell animation="fade" @click="notification" font-scale="1.2" />
           </div>
           <div class="profile">
             <b-icon-person-fill font-scale="4.5" />
@@ -118,7 +118,15 @@
           timeout: 6000,
           theme: 'metroui',
           layout: 'topRight'
-        })
+        }),
+        this.$noty.warning("There is a warrning!",{killer: false,
+          timeout: 6000,
+          theme: 'metroui',
+          layout: 'topRight'}),
+          this.$noty.error("There is an error!",{killer: false,
+          timeout: 6000,
+          theme: 'metroui',
+          layout: 'topRight'})
       }
     },
     mounted() {
