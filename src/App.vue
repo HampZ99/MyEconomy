@@ -113,7 +113,7 @@
         this.name = localStorage.getItem('name')
       },
       notification() {
-        this.$noty.info('Hey! Something very important here...', {
+        this.$noty.info('Hey! Something important comming here soon ! ', {
           killer: false,
           timeout: 6000,
           theme: 'metroui',

@@ -176,10 +176,6 @@
       link() {
         this.$refs['modal'].show()
       }
-
-      // Storage() {
-      //   this.localStorage.get('email')
-      // }
     },
     computed: {
       validation() {
