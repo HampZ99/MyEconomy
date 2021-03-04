@@ -35,7 +35,8 @@
         <b-form-select 
           :options="[
             { text: 5, value: 5 },
-            { text: 10, value: 10 }
+            { text: 10, value: 10 },
+            { text: 15, value: 15 }
           ]"
           v-model="perPage"
         >
@@ -65,7 +66,7 @@
               <b-icon icon="basket" aria-hidden="true"></b-icon
             ></b-button>
           </template>
-          <template v-slot:cell(stocks_trend_24h)="data">
+          <template v-slot:cell(stocks_24h)="data">
             <p>
               <span
                 ><b-icon
@@ -74,10 +75,10 @@
                   animation="spin"
                   aria-hidden="true"
                 ></b-icon></span
-              >{{ data.item.stocks_trend_24h }}
+              >{{ data.item.stocks_24h }}
             </p>
           </template>
-          <template v-slot:cell(stocks_trend_1year)="data">
+          <template v-slot:cell(stocks_year)="data">
             <p>
               <span
                 ><b-icon
@@ -86,7 +87,7 @@
                   
                   aria-hidden="true"
                 ></b-icon></span
-              >{{ data.item.stocks_trend_1year }}
+              >{{ data.item.stocks_year }}
             </p>
           </template>
           <div>
@@ -145,8 +146,8 @@
           { key: 'name', sortable: true },
           { key: 'stocks_owned', sortable: true },
           { key: 'stocks_price', sortable: true },
-          { key: 'stocks_trend_1year', sortable: true },
-          { key: 'stocks_trend_24h', sortable: true },
+          { key: 'stocks_year', sortable: true },
+          { key: 'stocks_24h', sortable: true },
           { key: 'actions', sortable: false }
         ],
         perPage: 5,
@@ -157,168 +158,168 @@
             name: 'SEB',
             stocks_owned: 15,
             stocks_price: 123,
-            stocks_trend_1year: +10.23,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: +10.23,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'H&M AB',
             stocks_owned: 80,
             stocks_price: 306,
-            stocks_trend_1year: 12.18,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 12.18,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'Telia',
             stocks_owned: 106,
             stocks_price: 103,
-            stocks_trend_1year: -22.02,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: -22.02,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'Volvo',
             stocks_owned: 12,
             stocks_price: 125,
-            stocks_trend_1year: 12.16,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 12.16,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'NEL',
             stocks_owned: 86,
             stocks_price: 230,
-            stocks_trend_1year: 4.23,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 4.23,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'SAS',
             stocks_owned: 29,
             stocks_price: 415,
-            stocks_trend_1year: -0.45,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: -0.45,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'Mowi',
             stocks_owned: 156,
             stocks_price: 156,
-            stocks_trend_1year: 1.52,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 1.52,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'ICA',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4.53,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 4.53,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'Lundin Petroleum',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4.18,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 4.18,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'Elektra B',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 4.12,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 4.12,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'SKF B',
             stocks_owned: 45,
             stocks_price: 94,
-            stocks_trend_1year: 8.11,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: 8.11,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           },
           {
             name: 'DNB',
             stocks_owned: 48,
             stocks_price: 456,
-            stocks_trend_1year: -9.15,
-            stocks_trend_24h: Math.floor(Math.random() * 201) - 100,
+            stocks_year: -9.15,
+            stocks_24h: Math.floor(Math.random() * 201) - 100,
             _cellVariants: {
               name: 'dark',
               stocks_owned: 'secondary',
               stocks_price: 'primary',
-              stocks_trend_1year: 'secondary',
-              stocks_trend_24h: 'primary'
+              stocks_year: 'secondary',
+              stocks_24h: 'primary'
             }
           }
         ]
@@ -332,7 +333,7 @@
         return Object.values(this.items).reduce(
           (accumulator, value) =>
             accumulator +
-            (value.stocks_trend_24h * value.stocks_owned * 100) / 100,
+            (value.stocks_24h * value.stocks_owned * 100) / 100,
           0
         )
       }
