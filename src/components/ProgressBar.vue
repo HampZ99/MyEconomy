@@ -13,7 +13,7 @@
     data() {
       return {
         value: 0,
-        max: 10000
+        max: ''
       }
     },
     mounted() {
@@ -22,6 +22,11 @@
       }
       for (let n = 0; n < this.$store.state.expenses.length; n++) {
         this.value += parseInt(this.$store.state.expenses[n].amount)
+      }
+    },
+    watch: {
+      value(newValue) {
+        this.value = newValue
       }
     }
   }
