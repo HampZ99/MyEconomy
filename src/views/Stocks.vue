@@ -104,7 +104,7 @@
     </div>
     <div class="total">
       <h3>
-        Total 24h
+        Total 24h 
         <span class="emoji" v-if="total > 0"
           ><b-icon
             variant="success"
@@ -339,7 +339,7 @@
       deleteItem: function(task) {
         this.items.splice(this.items.indexOf(task), 1)
       }
-    }
+    },
   }
 </script>
 
@@ -370,6 +370,10 @@
   }
   .emoji {
     margin-right: 15px;
+  }
+  h3 {
+    text-decoration-line: underline;
+    
   }
   @media (max-width: 375px) {
     h3 {

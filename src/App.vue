@@ -118,7 +118,15 @@
           timeout: 6000,
           theme: 'metroui',
           layout: 'topRight'
-        })
+        }),
+        this.$noty.warning("There is a warrning!",{killer: false,
+          timeout: 6000,
+          theme: 'metroui',
+          layout: 'topRight'}),
+          this.$noty.error("There is an error!",{killer: false,
+          timeout: 6000,
+          theme: 'metroui',
+          layout: 'topRight'})
       }
     },
     mounted() {
