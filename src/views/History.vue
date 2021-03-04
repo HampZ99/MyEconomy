@@ -45,8 +45,7 @@
           >
             {{ data.cost }}kr, {{ data.description }}, time: {{ data.time }}
             <b-icon icon="trash" @click="removeInputs(n)"></b-icon>
-          </b-list-group-item>
-          <!-- input datas do not remain on the browser when refreshing but can be seen on localStorage, why?   -->
+          </b-list-group-item>          
         </b-list-group>
       </b-col>
     </b-row>
@@ -64,30 +63,32 @@
       </b-col>
       <b-col cols="4">
         <b-list-group>
-          <b-list-group-item button class="button">Yesterday</b-list-group-item>
-          <b-list-group-item href="#" variant="secondary"
-            >-450kr, grocery shopping, time: 17:00:00</b-list-group-item
-          >
+          <b-list-group-item button class="button">
+           Yesterday
+          </b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">
+            -450kr, grocery shopping, time: 17:00:00
+          </b-list-group-item>
         </b-list-group>
         <b-list-group>
-          <b-list-group-item button class="button"
-            >This Month</b-list-group-item
-          >
-          <b-list-group-item href="#" variant="secondary"
-            >-45kr, toilet paper, time: 16:30:00</b-list-group-item
-          >
-          <b-list-group-item href="#" variant="light"
-            >-85kr, pizza lunch, time: 12:30:00</b-list-group-item
-          >
-          <b-list-group-item href="#" variant="secondary"
-            >-25kr, morning coffee, time: 09:00:00</b-list-group-item
-          >
-          <b-list-group-item href="#" variant="light"
-            >-34kr, transport, time: 08:30:00</b-list-group-item
-          >
-          <b-list-group-item href="#" variant="secondary"
-            >-499kr, T-shirt, time: 15:00:00</b-list-group-item
-          >
+          <b-list-group-item button class="button">
+            This Month
+          </b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">
+            -45kr, toilet paper, time: 16:30:00
+          </b-list-group-item>
+          <b-list-group-item href="#" variant="light">
+            -85kr, pizza lunch, time: 12:30:00
+          </b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">
+            -25kr, morning coffee, time: 09:00:00
+          </b-list-group-item>
+          <b-list-group-item href="#" variant="light">
+            -34kr, transport, time: 08:30:00
+          </b-list-group-item>
+          <b-list-group-item href="#" variant="secondary">
+            -499kr, T-shirt, time: 15:00:00
+            </b-list-group-item>
         </b-list-group>
       </b-col>
     </b-row>
@@ -109,7 +110,7 @@
       return {
         receivedDatas: [],
         myIncome: '',
-        cashRemain: '4834',
+        cashRemain: '14834',
         desc: ' Welcome Back ' + (this.name = localStorage.getItem('name'))
       }
     },
@@ -145,12 +146,8 @@
       saveReceivedDatas() {
         const parsed = JSON.stringify(this.receivedDatas)
         localStorage.setItem('receivedDatas', parsed)
-      }
-      // cashRemain() {
-      //   this.myIncome - this.value.cost
-      // }
-    },
-    //computed no working, need to fix it
+      }      
+    },    
     computed: {
       updateCashRemain: {
         get: function() {

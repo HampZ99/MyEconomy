@@ -34,9 +34,7 @@
     },
     watch: {
       cost(newCost) {
-        localStorage.cost = newCost
-        //watch cost for calculation        
-        //this.$emit('new-cost', newCost)
+        localStorage.cost = newCost        
       },
       description(newDescription) {
         localStorage.description = newDescription
